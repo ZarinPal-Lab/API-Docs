@@ -90,69 +90,6 @@ Show one user's card
           "meta": {
             "code": 200
           }
-          ## card edit [/card/edit/cardId.json]
-
-          edit user's card
-
-          ### Edit One Card [POST]
-
-          + Request (application/json)
-
-              + Headers
-              Location: access_token
-              + body
-                  {
-                    "pan" : "6362142100133635",
-                    "expired_at" : "1395-5"
-                  }
-
-          + Response 400 (application/json)
-
-              + Body
-                {
-                    "meta": {
-                    "code": 400,
-                    "error_type": "CardCanNotEdit",
-                    "error_message": "You can not edit this card."
-                    }
-                }
-
-                + Body
-                  {
-                      "meta": {
-                      "code": 400,
-                      "error_type": "CardExists",
-                      "error_message": "The card already exists."
-                      }
-                  }
-
-
-                + Body
-                  {
-                      "meta": {
-                      "code": 400,
-                      "error_type": "NotSupported",
-                      "error_message": "The card issuer is not supported."
-                      }
-                  }
-
-
-                + Body
-                  {
-                      "meta": {
-                      "code": 400,
-                      "error_type": "Expired",
-                      "error_message": "The card is expired."
-                      }
-                  }
-
-          + Response 200 (application/json)
-
-            + body
-              "meta": {
-                "code": 200,
-                "message": "Add card successfully"
-                }
 
 ## card add [/card/add.json]
 
@@ -177,40 +114,29 @@ add user's card
     + Body
       {
           "meta": {
-          "code": 400,
-          "error_type": "CardExpired",
-          "error_message": "The card is expired."
-          }
-      }
+            "code": 400,
+            "error_type": "CardExpired",
+            "error_message": "The card is expired."
+          },
 
-      + Body
-        {
-            "meta": {
+          "meta": {
             "code": 400,
             "error_type": "CardExists",
             "error_message": "The card already exists."
-            }
-        }
+          },
 
-
-      + Body
-        {
-            "meta": {
+          "meta": {
             "code": 400,
             "error_type": "NotSupported",
             "error_message": "The card issuer is not supported."
-            }
-        }
+          }
 
-
-      + Body
-        {
-            "meta": {
+          "meta": {
             "code": 400,
             "error_type": "Expired",
             "error_message": "The card is expired."
-            }
-        }
+          }
+      }
 
 + Response 200 (application/json)
 
@@ -241,39 +167,28 @@ edit user's card
     + Body
       {
           "meta": {
-          "code": 400,
-          "error_type": "CardCanNotEdit",
-          "error_message": "You can not edit this card."
-          }
-      }
+            "code": 400,
+            "error_type": "CardCanNotEdit",
+            "error_message": "You can not edit this card."
+          },
 
-      + Body
-        {
-            "meta": {
+          "meta": {
             "code": 400,
             "error_type": "CardExists",
             "error_message": "The card already exists."
-            }
-        }
+          },
 
-
-      + Body
-        {
-            "meta": {
+          "meta": {
             "code": 400,
             "error_type": "NotSupported",
             "error_message": "The card issuer is not supported."
-            }
-        }
+          }
 
-
-      + Body
-        {
-            "meta": {
+          "meta": {
             "code": 400,
             "error_type": "Expired",
             "error_message": "The card is expired."
-            }
+          }
         }
 
 + Response 200 (application/json)
