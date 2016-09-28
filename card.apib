@@ -1,0 +1,138 @@
+FORMAT: 1A
+HOST: https://api.zarinpal.com/
+
+# ZarinPal Rest API
+
+The ZarinPal API is organized around REST. Our API has predictable, resource-oriented URLs, and uses HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP authentication and HTTP verbs, which are understood by off-the-shelf HTTP clients.
+
+
+# Group Cards
+
+## card list [/card/list.json]
+
+Show all Card's user
+
+### List All Cards [GET]
+
++ Request (application/json)
+
+    + Headers
+    Location: access_token
+
++ Response 400 (application/json)
+
+    + Body
+      {
+          "meta": {
+          "code": 400,
+          "error_type": "CardNotFound",
+          "error_message": "The selected card not found or you are not allowed to use it."
+          }
+      }
+
++ Response 200 (application/json)
+
+  + body
+      "data": [
+          {
+            "entity_id": "5767cba0211677b008",
+            "account_id": 2455866200,
+            "iban": "IR140620000002101234567898",
+            "pan": "636214******5863",
+            "is_legal": false,
+            "status": "Active",
+            "issuer": {
+             "name": "زرين کارت",
+             "slug": "ZarinCard"
+          },
+          "expired_at": "2019-06-30 19:30:11"
+          }
+    ]
+
+## card show [/card/show/card_id.json]
+
+Show one Card's user
+
+### Show One Card [GET]
+
++ Request (application/json)
+
+    + Headers
+    Location: access_token
+
++ Response 400 (application/json)
+
+    + Body
+      {
+          "meta": {
+          "code": 400,
+          "error_type": "CardNotFound",
+          "error_message": "The selected card not found or you are not allowed to use it."
+          }
+      }
+
++ Response 200 (application/json)
+
+  + body
+      "data": {
+          "entity_id": "5767cba02128e8bf1677b008",
+          "account_id": 2100455866200,
+          "iban": "IR140620000002100455866200",
+          "pan": "636214******5863",
+          "is_legal": false,
+          "status": "Active",
+          "issuer": {
+            "name": "زرين کارت",
+            "slug": "ZarinCard"
+          },
+          "expired_at": "2019-06-30 19:30:00"
+          },
+          "meta": {
+            "code": 200
+          }
+
+## card add [/card/add.json]
+
+Add user's card
+
+### Add One Card [POST]
+
++ Request (application/json)
+
+    + Headers
+    Location: access_token
+    + body
+        {
+          "iban" : "IR150570111111000330531001",
+          "pan" : "5022291011112222",
+          "isLegal" : 1,
+          "expired_at" : "1395-5"
+        }
+
++ Response 400 (application/json)
+
+    + Body
+      {
+          "meta": {
+          "code": 400,
+          "error_type": "CardNotSupported",
+          "error_message": "The card issuer is not supported."
+          }
+      }
+
+      + Body
+        {
+            "meta": {
+            "code": 400,
+            "error_type": "CardOrIbanExists",
+            "error_message": "The card or iban already exists."
+            }
+        }
+
++ Response 200 (application/json)
+
+  + body
+    "meta": {
+      "code": 200,
+      "message": "Add card successfully"
+      }
