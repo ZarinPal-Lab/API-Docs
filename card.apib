@@ -115,25 +115,25 @@ add user's card
       {
           "meta": {
             "code": 400,
-            "error_type": "CardExpired",
-            "error_message": "The card is expired."
-          },
-
-          "meta": {
-            "code": 400,
             "error_type": "CardExists",
             "error_message": "The card already exists."
-          },
-
+          }
+      }
++ Response 400 (application/json)
+    + Body
+      {
           "meta": {
             "code": 400,
-            "error_type": "NotSupported",
+            "error_type": "CardNotSupported",
             "error_message": "The card issuer is not supported."
           }
-
+      }
++ Response 400 (application/json)
+    + Body
+      {
           "meta": {
             "code": 400,
-            "error_type": "Expired",
+            "error_type": "CardExpired",
             "error_message": "The card is expired."
           }
       }
@@ -170,26 +170,36 @@ edit user's card
             "code": 400,
             "error_type": "CardCanNotEdit",
             "error_message": "You can not edit this card."
-          },
+          }
+      }
++ Response 400 (application/json)
 
+    + Body
+      {
           "meta": {
             "code": 400,
             "error_type": "CardExists",
             "error_message": "The card already exists."
-          },
-
+          }
+      }
++ Response 400 (application/json)
+    + Body
+      {
           "meta": {
             "code": 400,
-            "error_type": "NotSupported",
+            "error_type": "CardNotSupported",
             "error_message": "The card issuer is not supported."
           }
-
+      }
++ Response 400 (application/json)
+    + Body
+      {
           "meta": {
             "code": 400,
-            "error_type": "Expired",
+            "error_type": "CardExpired",
             "error_message": "The card is expired."
           }
-        }
+      }
 
 + Response 200 (application/json)
 
