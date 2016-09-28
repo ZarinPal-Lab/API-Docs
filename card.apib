@@ -10,7 +10,7 @@ The ZarinPal API is organized around REST. Our API has predictable, resource-ori
 
 ## card list [/card/list.json]
 
-Show all Card's user
+Show all user's card
 
 ### List All Cards [GET]
 
@@ -51,7 +51,7 @@ Show all Card's user
 
 ## card show [/card/show/card_id.json]
 
-Show one Card's user
+Show one user's card
 
 ### Show One Card [GET]
 
@@ -90,10 +90,73 @@ Show one Card's user
           "meta": {
             "code": 200
           }
+          ## card edit [/card/edit/cardId.json]
+
+          edit user's card
+
+          ### Edit One Card [POST]
+
+          + Request (application/json)
+
+              + Headers
+              Location: access_token
+              + body
+                  {
+                    "pan" : "6362142100133635",
+                    "expired_at" : "1395-5"
+                  }
+
+          + Response 400 (application/json)
+
+              + Body
+                {
+                    "meta": {
+                    "code": 400,
+                    "error_type": "CardCanNotEdit",
+                    "error_message": "You can not edit this card."
+                    }
+                }
+
+                + Body
+                  {
+                      "meta": {
+                      "code": 400,
+                      "error_type": "CardExists",
+                      "error_message": "The card already exists."
+                      }
+                  }
+
+
+                + Body
+                  {
+                      "meta": {
+                      "code": 400,
+                      "error_type": "NotSupported",
+                      "error_message": "The card issuer is not supported."
+                      }
+                  }
+
+
+                + Body
+                  {
+                      "meta": {
+                      "code": 400,
+                      "error_type": "Expired",
+                      "error_message": "The card is expired."
+                      }
+                  }
+
+          + Response 200 (application/json)
+
+            + body
+              "meta": {
+                "code": 200,
+                "message": "Add card successfully"
+                }
 
 ## card add [/card/add.json]
 
-Add user's card
+add user's card
 
 ### Add One Card [POST]
 
@@ -103,9 +166,73 @@ Add user's card
     Location: access_token
     + body
         {
-          "iban" : "IR150570111111000330531001",
-          "pan" : "5022291011112222",
+          "iban" : "IR150570028080012345531301",
+          "pan" : "5022291012345190",
           "isLegal" : 1,
+          "expired_at" : "1399-5"
+        }
+
++ Response 400 (application/json)
+
+    + Body
+      {
+          "meta": {
+          "code": 400,
+          "error_type": "CardExpired",
+          "error_message": "The card is expired."
+          }
+      }
+
+      + Body
+        {
+            "meta": {
+            "code": 400,
+            "error_type": "CardExists",
+            "error_message": "The card already exists."
+            }
+        }
+
+
+      + Body
+        {
+            "meta": {
+            "code": 400,
+            "error_type": "NotSupported",
+            "error_message": "The card issuer is not supported."
+            }
+        }
+
+
+      + Body
+        {
+            "meta": {
+            "code": 400,
+            "error_type": "Expired",
+            "error_message": "The card is expired."
+            }
+        }
+
++ Response 200 (application/json)
+
+  + body
+    "meta": {
+      "code": 200,
+      "message": "Add card successfully."
+      }
+
+## card edit [/card/edit/cardId.json]
+
+edit user's card
+
+### Edit One Card [POST]
+
++ Request (application/json)
+
+    + Headers
+    Location: access_token
+    + body
+        {
+          "pan" : "6362142100133635",
           "expired_at" : "1395-5"
         }
 
@@ -115,8 +242,8 @@ Add user's card
       {
           "meta": {
           "code": 400,
-          "error_type": "CardNotSupported",
-          "error_message": "The card issuer is not supported."
+          "error_type": "CardCanNotEdit",
+          "error_message": "You can not edit this card."
           }
       }
 
@@ -124,8 +251,28 @@ Add user's card
         {
             "meta": {
             "code": 400,
-            "error_type": "CardOrIbanExists",
-            "error_message": "The card or iban already exists."
+            "error_type": "CardExists",
+            "error_message": "The card already exists."
+            }
+        }
+
+
+      + Body
+        {
+            "meta": {
+            "code": 400,
+            "error_type": "NotSupported",
+            "error_message": "The card issuer is not supported."
+            }
+        }
+
+
+      + Body
+        {
+            "meta": {
+            "code": 400,
+            "error_type": "Expired",
+            "error_message": "The card is expired."
             }
         }
 
@@ -134,5 +281,5 @@ Add user's card
   + body
     "meta": {
       "code": 200,
-      "message": "Add card successfully"
+      "message": "This card updated successfully."
       }
