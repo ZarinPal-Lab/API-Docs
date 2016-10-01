@@ -21,34 +21,34 @@ Show all user's card
 
 + Response 400 (application/json)
 
-    + Body
-      {
-          "meta": {
-          "code": 400,
-          "error_type": "CardNotFound",
-          "error_message": "The selected card not found or you are not allowed to use it."
-          }
-      }
+  + Body
+    {
+        "meta": {
+        "code": 400,
+        "error_type": "CardNotFound",
+        "error_message": "The selected card not found or you are not allowed to use it."
+        }
+    }
 
 + Response 200 (application/json)
 
   + Body
     {
       "data": [
-            {
-              "entity_id": "5767cba0211677b008",
-              "account_id": 2455866200123,
-              "iban": "IR140620000002101234567898",
-              "pan": "636214******5863",
-              "is_legal": false,
-              "status": "Active",
-              "issuer": {
-               "name": "زرين کارت",
-               "slug": "ZarinCard"
+          {
+            "entity_id": "5767cba0211677b008",
+            "account_id": 2455866200123,
+            "iban": "IR140620000002101234567898",
+            "pan": "636214******5863",
+            "is_legal": false,
+            "status": "Active",
+            "issuer": {
+              "name": "زرين کارت",
+              "slug": "ZarinCard"
             },
             "expired_at": "2019-06-30 19:30:11"
-            }
-          ]
+          }
+        ]
     }
 
     + Schema
@@ -138,47 +138,47 @@ Show one user's card
           }
       }
 
-      + Schema
-        {
-          "type": "object",
-          "properties": {
-            "entity_id": {
-              "type": "string"
-            },
-            "account_id": {
-              "type": "integer",
-              "description": "account number"
-            },
-            "iban": {
-              "type": "string"
-            },
-            "pan": {
-              "type": "string"
-            },
-            "is_legal": {
-              "type": "boolean",
-              "description": "if is_legal set to ture this card is legal else it's real"
-            },
-            "status" : {
-              "type" : "string"
-            }
-            "issuer": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "slug": {
-                  "type": "string"
-                }
-              }
-            },
-            "expired_at": {
-              "type": "string",
-              "description": "expiration date for this card"
-            }
+  + Schema
+  {
+    "type": "object",
+    "properties": {
+      "entity_id": {
+        "type": "string"
+      },
+      "account_id": {
+        "type": "integer",
+        "description": "account number"
+      },
+      "iban": {
+        "type": "string"
+      },
+      "pan": {
+        "type": "string"
+      },
+      "is_legal": {
+        "type": "boolean",
+        "description": "if is_legal set to ture this card is legal else it's real"
+      },
+      "status": {
+        "type": "string"
+      },
+      "issuer": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
           }
+        }
+      },
+      "expired_at": {
+        "type": "string",
+        "description": "expiration date for this card"
       }
+    }
+    }
 
 ## card add [/card/add.json]
 
@@ -198,26 +198,26 @@ add user's card
           "expired_at" : "1399-5"
         }
 
-        + Schema
-          {
-            "type": "object",
-            "properties": {
-              "iban": {
-                "type": "string"
-              },
-              "pan": {
-                "type": "string"
-              },
-              "is_legal": {
-                "type": "integer",
-                "description": "if is_legal set to 1 this card is legal and if is_legal set to 0  it's real"
-              },
-              "expired_at": {
-                "type": "string",
-                "description": "expiration date for this card"
-              }
-            }
+    + Schema
+      {
+        "type": "object",
+        "properties": {
+          "iban": {
+            "type": "string"
+          },
+          "pan": {
+            "type": "string"
+          },
+          "is_legal": {
+            "type": "integer",
+            "description": "if is_legal set to 1 this card is legal and if is_legal set to 0  it's real"
+          },
+          "expired_at": {
+            "type": "string",
+            "description": "expiration date for this card"
+          }
         }
+     }
 
 + Response 400 (application/json)
 
@@ -265,27 +265,27 @@ edit user's card
 
 + Request (application/json)
 
-    + Headers
-    Authorization : access_token
-    + Body
-        {
-          "pan" : "6362142100133635",
-          "expired_at" : "1395-5"
-        }
-
-    + Schema
+  + Headers
+  Authorization : access_token
+  + Body
       {
-        "type": "object",
-        "properties": {
-          "pan": {
-            "type": "string"
-          },
-          "expired_at": {
-            "type": "string",
-            "description": "expiration date for this card"
-          }
+        "pan" : "6362142100133635",
+        "expired_at" : "1395-5"
+      }
+
+  + Schema
+    {
+      "type": "object",
+      "properties": {
+        "pan": {
+          "type": "string"
+        },
+        "expired_at": {
+          "type": "string",
+          "description": "expiration date for this card"
         }
-    }
+      }
+  }
 
 + Response 400 (application/json)
 
