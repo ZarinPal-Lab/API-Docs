@@ -17,7 +17,7 @@ Show all user's card
 + Request (application/json)
 
     + Headers
-    Location: access_token
+    Authorization : access_token
 
 + Response 400 (application/json)
 
@@ -32,24 +32,69 @@ Show all user's card
 
 + Response 200 (application/json)
 
-  + body
+  + Body
+    {
       "data": [
-          {
-            "entity_id": "5767cba0211677b008",
-            "account_id": 2455866200,
-            "iban": "IR140620000002101234567898",
-            "pan": "636214******5863",
-            "is_legal": false,
-            "status": "Active",
-            "issuer": {
-             "name": "زرين کارت",
-             "slug": "ZarinCard"
-          },
-          "expired_at": "2019-06-30 19:30:11"
-          }
-    ]
+            {
+              "entity_id": "5767cba0211677b008",
+              "account_id": 2455866200123,
+              "iban": "IR140620000002101234567898",
+              "pan": "636214******5863",
+              "is_legal": false,
+              "status": "Active",
+              "issuer": {
+               "name": "زرين کارت",
+               "slug": "ZarinCard"
+            },
+            "expired_at": "2019-06-30 19:30:11"
+            }
+          ]
+    }
 
-## card show [/card/show/card_id.json]
+    + Schema
+      {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "entity_id": {
+              "type": "string"
+            },
+            "account_id": {
+              "type": "integer",
+              "description": "account number"
+            },
+            "iban": {
+              "type": "string"
+            },
+            "pan": {
+              "type": "string"
+            },
+            "is_legal": {
+              "type": "boolean",
+              "description": "if is_legal set to ture this card is legal else it's real"
+            },
+            "issuer": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "string"
+                }
+              }
+            },
+            "expired_at": {
+              "type": "string",
+              "description": "expiration date for this card"
+            }
+          }
+        }
+      }
+
+
+## card show [/card/show/{{card_entity_id}}.json]
 
 Show one user's card
 
@@ -58,7 +103,7 @@ Show one user's card
 + Request (application/json)
 
     + Headers
-    Location: access_token
+    Authorization : access_token
 
 + Response 400 (application/json)
 
@@ -73,7 +118,8 @@ Show one user's card
 
 + Response 200 (application/json)
 
-  + body
+  + Body
+     {
       "data": {
           "entity_id": "5767cba02128e8bf1677b008",
           "account_id": 2100455866200,
@@ -90,6 +136,49 @@ Show one user's card
           "meta": {
             "code": 200
           }
+      }
+
+      + Schema
+        {
+          "type": "object",
+          "properties": {
+            "entity_id": {
+              "type": "string"
+            },
+            "account_id": {
+              "type": "integer",
+              "description": "account number"
+            },
+            "iban": {
+              "type": "string"
+            },
+            "pan": {
+              "type": "string"
+            },
+            "is_legal": {
+              "type": "boolean",
+              "description": "if is_legal set to ture this card is legal else it's real"
+            },
+            "status" : {
+              "type" : "string"
+            }
+            "issuer": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "string"
+                }
+              }
+            },
+            "expired_at": {
+              "type": "string",
+              "description": "expiration date for this card"
+            }
+          }
+      }
 
 ## card add [/card/add.json]
 
@@ -100,13 +189,34 @@ add user's card
 + Request (application/json)
 
     + Headers
-    Location: access_token
-    + body
+    Authorization : access_token
+    + Body
         {
           "iban" : "IR150570028080012345531301",
           "pan" : "5022291012345190",
           "isLegal" : 1,
           "expired_at" : "1399-5"
+        }
+
+        + Schema
+          {
+            "type": "object",
+            "properties": {
+              "iban": {
+                "type": "string"
+              },
+              "pan": {
+                "type": "string"
+              },
+              "is_legal": {
+                "type": "integer",
+                "description": "if is_legal set to 1 this card is legal and if is_legal set to 0  it's real"
+              },
+              "expired_at": {
+                "type": "string",
+                "description": "expiration date for this card"
+              }
+            }
         }
 
 + Response 400 (application/json)
@@ -146,7 +256,7 @@ add user's card
       "message": "Add card successfully."
       }
 
-## card edit [/card/edit/cardId.json]
+## card edit [/card/edit/{{card_entity_id}}.json]
 
 edit user's card
 
@@ -155,12 +265,26 @@ edit user's card
 + Request (application/json)
 
     + Headers
-    Location: access_token
-    + body
+    Authorization : access_token
+    + Body
         {
           "pan" : "6362142100133635",
           "expired_at" : "1395-5"
         }
+
+    + Schema
+      {
+        "type": "object",
+        "properties": {
+          "pan": {
+            "type": "string"
+          },
+          "expired_at": {
+            "type": "string",
+            "description": "expiration date for this card"
+          }
+        }
+    }
 
 + Response 400 (application/json)
 
@@ -203,8 +327,10 @@ edit user's card
 
 + Response 200 (application/json)
 
-  + body
-    "meta": {
-      "code": 200,
-      "message": "This card updated successfully."
-      }
+  + Body
+    {
+      "meta": {
+        "code": 200,
+        "message": "This card updated successfully."
+        }
+    }
