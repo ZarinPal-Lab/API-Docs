@@ -211,15 +211,11 @@
     "<span class="hljs-attribute">error_message</span>": <span class="hljs-value"><span class="hljs-string">"The card is expired."</span>
   </span>}
 </span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
-<span class="hljs-string">"meta"</span>: {
-<span class="hljs-string">"code"</span>: <span class="hljs-number">200</span>,
-<span class="hljs-string">"message"</span>: <span class="hljs-string">"This card updated successfully."</span>
-}
-}
-FORMAT: <span class="hljs-number">1</span>A
-HOST: https:<span class="hljs-comment">//api.zarinpal.com/</span>
-
-The ZarinPal API is organized around REST. Our API has predictable, resource-oriented URLs, and uses HTTP response codes to indicate API errors. We use built-<span class="hljs-keyword">in</span> HTTP features, like HTTP authentication and HTTP verbs, which are understood by off-the-shelf HTTP clients.</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="purses" class="resource-group"><h2 class="group-heading">Purses <a href="#purses" class="permalink">&para;</a></h2><div id="purses-purse-add" class="resource"><h3 class="resource-heading">purse add <a href="#purses-purse-add" class="permalink">&nbsp;&para;</a></h3><p>Add one user’s purse</p>
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"This card updated successfully."</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="purses" class="resource-group"><h2 class="group-heading">Purses <a href="#purses" class="permalink">&para;</a></h2><div id="purses-purse-add" class="resource"><h3 class="resource-heading">purse add <a href="#purses-purse-add" class="permalink">&nbsp;&para;</a></h3><p>Add one user’s purse</p>
 <div id="purses-purse-add-post" class="action post"><h4 class="action-heading"><div class="name">Add Purse</div><a href="#purses-purse-add-post" class="method post">POST</a><code class="uri">/purse/add.json</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.zarinpal.com/</span>/purse/add.json</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">access_token</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">purse</span>": <span class="hljs-value"><span class="hljs-string">"1"</span></span>,
   "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"test1"</span>
@@ -390,29 +386,80 @@ data : {
     "<span class="hljs-attribute">error_message</span>": <span class="hljs-value"><span class="hljs-string">"Purse Not Found."</span>
   </span>}
 </span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
-<span class="hljs-string">"meta"</span>: {
-  <span class="hljs-string">"code"</span>: <span class="hljs-number">200</span>,
-  <span class="hljs-string">"message"</span>: <span class="hljs-string">"Update name purse successfully."</span>
-}
-}
-FORMAT: <span class="hljs-number">1</span>A
-HOST: https:<span class="hljs-comment">//api.zarinpal.com/</span>
-
-The ZarinPal API is organized around REST. Our API has predictable, resource-oriented URLs, and uses HTTP response codes to indicate API errors. We use built-<span class="hljs-keyword">in</span> HTTP features, like HTTP authentication and HTTP verbs, which are understood by off-the-shelf HTTP clients.</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="webservices" class="resource-group"><h2 class="group-heading">Webservices <a href="#webservices" class="permalink">&para;</a></h2><div id="webservices-list-webservices" class="resource"><h3 class="resource-heading">list webservices <a href="#webservices-list-webservices" class="permalink">&nbsp;&para;</a></h3><p>Get list of current users Webservice</p>
-<div id="webservices-list-webservices-get" class="action get"><h4 class="action-heading"><div class="name">List All Webservices</div><a href="#webservices-list-webservices-get" class="method get">GET</a><code class="uri">/webservice/index.json</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.zarinpal.com/</span>/webservice/index.json</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">access_token</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code><span class="hljs-string">"meta"</span>: {
-  <span class="hljs-string">"code"</span>: <span class="hljs-number">400</span>,
-  <span class="hljs-string">"error_type"</span>: <span class="hljs-string">"WebserviceNotFound"</span>,
-  <span class="hljs-string">"error_message"</span>: <span class="hljs-string">"Webservice Not Found."</span>
-}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Update name purse successfully."</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="webservices" class="resource-group"><h2 class="group-heading">Webservices <a href="#webservices" class="permalink">&para;</a></h2><div id="webservices-list-webservices" class="resource"><h3 class="resource-heading">list webservices <a href="#webservices-list-webservices" class="permalink">&nbsp;&para;</a></h3><p>Get list of current users Webservice</p>
+<div id="webservices-list-webservices-get" class="action get"><h4 class="action-heading"><div class="name">List All Webservices</div><a href="#webservices-list-webservices-get" class="method get">GET</a><code class="uri">/webservice/index.json</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.zarinpal.com/</span>/webservice/index.json</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">access_token</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">400</span></span>,
+    "<span class="hljs-attribute">error_type</span>": <span class="hljs-value"><span class="hljs-string">"WebserviceNotFound"</span></span>,
+    "<span class="hljs-attribute">error_message</span>": <span class="hljs-value"><span class="hljs-string">"Webservice Not Found."</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">entity_id</span>": <span class="hljs-value"><span class="hljs-string">"4a0b7ff2-67ac-11e6-b8c295eb8fc"</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
     "<span class="hljs-attribute">purse</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
-    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"اصلی زرين پال"</span></span>,
-    "<span class="hljs-attribute">balance</span>": <span class="hljs-value"><span class="hljs-number">846200</span></span>,
-    "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"2016-05-23 09:58:18"</span>
+    "<span class="hljs-attribute">category_id</span>": <span class="hljs-value"><span class="hljs-number">10</span></span>,
+    "<span class="hljs-attribute">tel</span>": <span class="hljs-value"><span class="hljs-string">"09122182569"</span></span>,
+    "<span class="hljs-attribute">domain</span>": <span class="hljs-value"><span class="hljs-string">"htpp://www.test.com"</span></span>,
+    "<span class="hljs-attribute">ip</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"test"</span></span>,
+    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"description for test"</span></span>,
+    "<span class="hljs-attribute">ussd_id</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+    "<span class="hljs-attribute">zaringate_status</span>": <span class="hljs-value"><span class="hljs-string">"NotActivated"</span></span>,
+    "<span class="hljs-attribute">logo</span>": <span class="hljs-value"><span class="hljs-string">"//logoland.zarinpal.com/6e76cc60647c3d288631bf3ed444dd2b/125x125.png"</span>
   </span>}</span>,
   "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
     "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span>
   </span>}
+</span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+"<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
+"<span class="hljs-attribute">items</span>" : <span class="hljs-value">{
+"<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+"<span class="hljs-attribute">properties</span>" : <span class="hljs-value">{
+    "<span class="hljs-attribute">entity_id</span>" : <span class="hljs-value">{
+        "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">status</span>" : <span class="hljs-value">{
+        "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"boolean"</span></span>,
+        "<span class="hljs-attribute">description</span>" : <span class="hljs-value"><span class="hljs-string">"if set status true this webservice is active else it's not Active"</span></span>,
+    }</span>,
+    "<span class="hljs-attribute">purse</span>" : <span class="hljs-value">{
+        "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"integer"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">category_id</span>" : <span class="hljs-value">{
+        "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"integer"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">tel</span>" : <span class="hljs-value">{
+        "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">domain</span>" : <span class="hljs-value">{
+        "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">ip</span>" : <span class="hljs-value">{
+        "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+        "<span class="hljs-attribute">description</span>" : <span class="hljs-value"><span class="hljs-string">"if set ip is null ,this webservice not limited else it's on limited"</span></span>,
+    }</span>,
+    "<span class="hljs-attribute">tel</span>" : <span class="hljs-value">{
+        "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">tel</span>" : <span class="hljs-value">{
+        "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">tel</span>" : <span class="hljs-value">{
+        "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">tel</span>" : <span class="hljs-value">{
+        "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">tel</span>" : <span class="hljs-value">{
+        "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+}
+</span>}
 </span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="webservices-purse-add" class="resource"><h3 class="resource-heading">purse add <a href="#webservices-purse-add" class="permalink">&nbsp;&para;</a></h3><p>Add one user’s purse</p>
 <div id="webservices-purse-add-post" class="action post"><h4 class="action-heading"><div class="name">Add Purse</div><a href="#webservices-purse-add-post" class="method post">POST</a><code class="uri">/purse/add.json</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.zarinpal.com/</span>/purse/add.json</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">access_token</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">purse</span>": <span class="hljs-value"><span class="hljs-string">"1"</span></span>,
@@ -495,7 +542,7 @@ The ZarinPal API is organized around REST. Our API has predictable, resource-ori
 </span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code><span class="hljs-string">"meta"</span>: {
   <span class="hljs-string">"code"</span>: <span class="hljs-number">200</span>,
   <span class="hljs-string">"message"</span>: <span class="hljs-string">"Update name purse successfully."</span>
-}</code></pre><div style="height: 1px;"></div></div></div></div></div></section></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 01 Oct 2016</p><script>/* eslint-env browser */
+}</code></pre><div style="height: 1px;"></div></div></div></div></div></section></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 02 Oct 2016</p><script>/* eslint-env browser */
 /* eslint quotes: [2, "single"] */
 'use strict';
 
