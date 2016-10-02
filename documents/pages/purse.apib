@@ -10,7 +10,7 @@ Add one user's purse
 + Request (application/json)
 
     + Headers
-    Authorization : access_token
+    Authorization : {{access_token}}
 
     + Body
     {
@@ -139,7 +139,7 @@ get user's purse balance
 + Request (application/json)
 
     + Headers
-    Authorization : access_token
+    Authorization : {{access_token}}
 
 + Response 400 (application/json)
 
@@ -265,12 +265,12 @@ Show info purse current user
 
 Edit name purse
 
-### Edit Purse [POST]
+### Edit Purse [PUT]
 
 + Request (application/json)
 
     + Headers
-    Authorization : access_token
+    Authorization : {{access_token}}
 
     +Body
       {

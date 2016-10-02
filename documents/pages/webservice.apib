@@ -10,7 +10,7 @@ Get list of current users Webservice
 + Request (application/json)
 
     + Headers
-    Authorization: access_token
+    Authorization: {{access_token}}
 
 + Response 400 (application/json)
 
@@ -101,7 +101,7 @@ Get list of current users Webservice
     }
   }
 
-## show webservice [/webservice/show/{webservice_entity_id}.json]
+## show webservice [/webservice/show/{{webservice_entity_id}}.json]
 
 Get show information for one webservice
 
@@ -110,7 +110,7 @@ Get show information for one webservice
 + Request (application/json)
 
     + Headers
-    Authorization: access_token
+    Authorization: {{access_token}}
 
 + Response 400 (application/json)
 
@@ -205,7 +205,7 @@ Request for new webservice
 + Request (application/json)
 
     + Headers
-    Authorization: access_token
+    Authorization: {{access_token}}
 
     + Body
       {
@@ -296,7 +296,7 @@ Get price for request zarin gate
 + Request (application/json)
 
     + Headers
-    Authorization: access_token
+    Authorization: {{access_token}}
 
 + Response 200 (application/json)
 
