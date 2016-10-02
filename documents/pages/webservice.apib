@@ -27,6 +27,106 @@ Get list of current users Webservice
 
   + Body
   {
+      "data": [
+        {
+          "entity_id": "4a0b7ff2-67ac-11e6-b8c295eb8fc",
+          "status": true,
+          "purse": 1,
+          "category_id": 10,
+          "tel": "09122182569",
+          "domain": "htpp://www.test.com",
+          "ip": null,
+          "name": "test",
+          "description": "description for test",
+          "ussd_id": null,
+          "zaringate_status": "NotActivated",
+          "logo": "//logoland.zarinpal.com/6e76cc60647c3d288631bf3ed444dd2b/125x125.png"
+        ,
+        "meta": {
+          "code": 200
+        }
+      }
+        ]
+  }
+
+  + Schema
+  {
+    "type" : "array",
+    "items" : {
+        "type" : "object",
+        "properties" : {
+            "entity_id" : {
+                "type" : "string"
+            },
+            "status" : {
+                "type" : "boolean",
+                "description" : "if set status true this webservice is active else it's not Active",
+            },
+            "purse" : {
+                "type" : "integer"
+            },
+            "category_id" : {
+                "type" : "integer",
+                "description" : "webservice's category"
+            },
+            "tel" : {
+                "type" : "string"
+            },
+            "domain" : {
+                "type" : "string"
+            },
+            "ip" : {
+                "type" : "string",
+                "description" : "if set ip is null ,this webservice not limited else it's on limited",
+            },
+            "name" : {
+                "type" : "string"
+            },
+            "description" : {
+                "type" : "string"
+            },
+            "ussd_id" : {
+                "type" : "string",
+                "description" : "code ussd"
+            },
+            "zaringate_status" : {
+                "type" : "string",
+                "description" : "check request for zaringate"
+            },
+            "logo" : {
+                "type" : "string",
+                "description" : "This is url for show logo"
+            }
+        }
+    }
+  }
+
+## show webservice [/webservice/show/{webservice_entity_id}.json]
+
+Get show information for one webservice
+
+### List All Webservices [GET]
+
++ Request (application/json)
+
+    + Headers
+    Authorization: access_token
+
++ Response 400 (application/json)
+
+  + Body
+    {
+        "meta": {
+          "code": 400,
+          "error_type": "WebserviceNotFound",
+          "error_message": "Webservice Not Found."
+        }
+    }
+
++ Response 200 (application/json)
+
+  + Body
+  {
       "data":
         {
           "entity_id": "4a0b7ff2-67ac-11e6-b8c295eb8fc",
@@ -49,22 +149,84 @@ Get list of current users Webservice
 
   + Schema
   {
-    "type" : "array",
-    "items" : {
+      "type" : "object",
+      "properties" : {
+          "entity_id" : {
+              "type" : "string"
+          },
+          "status" : {
+              "type" : "boolean",
+              "description" : "if set status true this webservice is active else it's not Active",
+          },
+          "purse" : {
+              "type" : "integer"
+          },
+          "category_id" : {
+              "type" : "integer",
+              "description" : "webservice's category"
+          },
+          "tel" : {
+              "type" : "string"
+          },
+          "domain" : {
+              "type" : "string"
+          },
+          "ip" : {
+              "type" : "string",
+              "description" : "if set ip is null ,this webservice not limited else it's on limited",
+          },
+          "name" : {
+              "type" : "string"
+          },
+          "description" : {
+              "type" : "string"
+          },
+          "ussd_id" : {
+              "type" : "string",
+              "description" : "code ussd"
+          },
+          "zaringate_status" : {
+              "type" : "string",
+              "description" : "check request for zaringate"
+          },
+          "logo" : {
+              "type" : "string",
+              "description" : "This is url for show logo"
+          }
+      }
+  }
+
+## post request webservice [/webservice/request.json]
+
+Request for new webservice
+
+### Request New Webservice [POST]
+
++ Request (application/json)
+
+    + Headers
+    Authorization: access_token
+
+    + Body
+      {
+        "domain" : "www.test2.com",
+        "tel" : "09351309626",
+        "purse" : 1,
+        "webservice_category_id" : 10,
+        "site_name" : "test api",
+        "site_content" : "test content for creeat webservice"
+      }
+
+    + Schema
+    {
         "type" : "object",
         "properties" : {
-            "entity_id" : {
-                "type" : "string"
-            },
-            "status" : {
-                "type" : "boolean",
-                "description" : "if set status true this webservice is active else it's not Active",
-            },
             "purse" : {
                 "type" : "integer"
             },
-            "category_id" : {
-                "type" : "integer"
+            "webservice_category_id" : {
+                "type" : "integer",
+                "description" : "webservice's category"
             },
             "tel" : {
                 "type" : "string"
@@ -72,223 +234,99 @@ Get list of current users Webservice
             "domain" : {
                 "type" : "string"
             },
-            "ip" : {
-                "type" : "string",
-                "description" : "if set ip is null ,this webservice not limited else it's on limited",
-            },
-            "tel" : {
+            "site_name" : {
                 "type" : "string"
             },
-            "tel" : {
+            "site_content" : {
                 "type" : "string"
-            },
-            "tel" : {
-                "type" : "string"
-            },
-            "tel" : {
-                "type" : "string"
-            },
-            "tel" : {
-                "type" : "string"
-            },
+            }
         }
     }
-  }
 
-## purse add [/purse/add.json]
++ Response 400 (application/json)
 
-Add one user's purse
-
-### Add Purse [POST]
-
-+ Request (application/json)
-
-    + Headers
-    Authorization: access_token
-
-    + body
+  + Body
     {
-      "purse" : "1",
-      "name" : "test1"
+        "meta": {
+          "code": 400,
+          "error_type": "WebserviceNotFound",
+          "error_message": "Webservice Not Found."
+        }
     }
 
 + Response 400 (application/json)
 
-    + Body
-      {
-          "meta": {
+  + Body
+    {
+        "meta": {
           "code": 400,
-          "error_type": "PurseLimit",
-          "error_message": "You can not create more purses."
-          }
-      }
+          "error_type": "WebserviceUniqueDomain",
+          "error_message": "This Domain is exists."
+        }
+    }
+
+
 + Response 400 (application/json)
 
-    + Body
-      {
-          "meta": {
+  + Body
+    {
+        "meta": {
           "code": 400,
-          "error_type": "PurseNotEnoughCredit",
-          "error_message": "Purse does not have enough credit."
-          }
-      }
+          "error_type": "WebserviceFreeDomain",
+          "error_message": "This is a free domain."
+        }
+    }
 
 + Response 200 (application/json)
 
   + Body
-    {
-      "meta": {
-        "code": 200,
-        "message": "purse added successfully"
-      }
-    }
-
-## list purse [/purse/list.json]
-
-List purse current user
-
-### List All Purses [GET]
-
-+ Request (application/json)
-
-    + Headers
-    Authorization: access_token
-
-+ Response 400 (application/json)
-
-    + Body
-      {
-          "meta": {
-          "code": 400,
-          "error_type": "PurseNotFound",
-          "error_message": "Purse Not Found."
-          }
-      }
-
-+ Response 200 (application/json)
-
-  + body
   {
-      "data":
-        {
-          "purse": 1,
-          "name": "اصلی زرين پال",
-          "balance": 846200,
-          "updated_at": "2016-05-23 09:58:18"
-        },
         "meta": {
-          "code": 200
+          "code": 200,
+          "message": "Post request for webservice successfully"
         }
   }
 
-## purse balance [/purse/balance/purse_number.json]
+## show price Zaringate for all webservices [/webservice/priceZaringate.json]
 
-get user's purse balance
+Get price for request zarin gate
 
-### Purse Balance [GET]
-
-+ Request (application/json)
-
-    + Headers
-    Authorization: access_token
-
-+ Response 400 (application/json)
-
-    + Body
-      {
-          "meta": {
-            "code": 400,
-            "error_type": "PurseNotFound",
-            "error_message": "Purse Not Found."
-          }
-      }
-+ Response 200 (application/json)
-
-  + Body
-        "meta": {
-          "code": 200,
-          },
-       "data": {
-           "balance": 846200,
-           "today_income": 0,
-           "today_outcome": 0
-       }
-
-## purse info [/purse/info/:zp.0.0 or email or mobile.json]
-
-Show info purse current user
-
-### Get Info Purse [GET]
+### PRICE REQUEST ZARINGATE [GET]
 
 + Request (application/json)
 
     + Headers
     Authorization: access_token
 
-+ Response 400 (application/json)
-
-    + Body
-      {
-          "meta": {
-            "code": 400,
-            "error_type": "UserNotFound",
-            "error_message": "User Not Found."
-          }
-      }
-+ Response 400 (application/json)
-
-    + Body
-      {
-          "meta": {
-            "code": 400,
-            "error_type": "PurseNotFound",
-            "error_message": "Purse Not Found."
-          }
-      }
-
 + Response 200 (application/json)
 
   + Body
+  {
+  "data": [
+          {
+            "webservice": "4a0b7ff2-67ac-11e000c295eb8fc",
+            "amount": 20000
+          }
+      ],
       "meta": {
           "code": 200
-      },
-      "purse": 1,
-      "public_id": 0,
-      "name": "مصطفی امیری",
-      "email_hash": "asdfghjklzxcvbnmoiuytrewas",
-      "zp_id": "ZP.0.0"
-
-## edit purse [/purse/edit/{purseNumber}.json]
-
-Edit name purse
-
-### Edit Purse [POST]
-
-+ Request (application/json)
-
-    + Headers
-    Authorization: access_token
-
-    +Body
-      {
-        "name" : "test2"
       }
+  }
 
-+ Response 400 (application/json)
-
-    + Body
-      {
-          "meta": {
-            "code": 400,
-            "error_type": "PurseNotFound",
-            "error_message": "Purse Not Found."
-          }
+  + Schema
+  {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+            "webservice" : {
+                "type" : "string",
+                "description" : "webservice's entity_id"
+            },
+            "amount" : {
+                "type" : "integer",
+                "description" : "price zaringate for this webservice",
+            }
+        }
       }
-
-+ Response 200 (application/json)
-
-  + Body
-      "meta": {
-          "code": 200,
-          "message": "Update name purse successfully."
-      }
+  }
