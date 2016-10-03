@@ -10,7 +10,7 @@ Show all user's card
 + Request (application/json)
 
     + Headers
-    Authorization : {{access_token}}
+    Authorization : {access_token}
 
 + Response 400 (application/json)
 
@@ -87,7 +87,7 @@ Show all user's card
       }
 
 
-## card show [/card/show/{{card_entity_id}}.json]
+## card show [/card/show/{card_entity_id}.json]
 
 Show one user's card
 
@@ -96,7 +96,7 @@ Show one user's card
 + Request (application/json)
 
     + Headers
-    Authorization : {{access_token}}
+    Authorization : {access_token}
 
 + Response 400 (application/json)
 
@@ -182,7 +182,7 @@ add user's card
 + Request (application/json)
 
     + Headers
-    Authorization : {{access_token}}
+    Authorization : {access_token}
     + Body
         {
           "iban" : "IR150570028080012345531301",
@@ -250,7 +250,7 @@ add user's card
         "message": "Add card successfully."
         }
     }
-## card edit [/card/edit/{{card_entity_id}}.json]
+## card edit [/card/edit/{card_entity_id}.json]
 
 edit user's card
 
@@ -259,7 +259,7 @@ edit user's card
 + Request (application/json)
 
   + Headers
-  Authorization : {{access_token}}
+  Authorization : {access_token}
   + Body
       {
         "pan" : "6362142100133635",
