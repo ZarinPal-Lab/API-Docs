@@ -11,7 +11,7 @@ git config --global push.default simple
 eval "$(ssh-agent -s)" #start the ssh agent
 chmod 600 .deploy_key # this key should have push access
 ssh-add .deploy_key
-git clone -b my-branch git@github.com:user/myproject.git API-Docs
+git clone -b gh-pages git@github.com:ZarinPal-Lab/API-Docs.git API-Docs
 cp index.html API-Docs/index.html
 cd API-Docs
 git add --all
