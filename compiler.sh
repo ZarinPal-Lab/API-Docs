@@ -3,7 +3,7 @@ npm install -g aglio
 rm index.apib
 cat documents/header.apib >> index.apib
 cat documents/pages/*.apib >> index.apib
-aglio -i index.apib -o index.html
+aglio -i index.apib --theme-template triple -o index.html
 
 git config --global user.email "zarinpal@Travis"
 git config --global user.name "zarinpal@Travis"
