@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 npm install -g aglio
 rm index.apib
 cat documents/header.apib >> index.apib
@@ -10,9 +11,8 @@ git config --global push.default simple
 eval "$(ssh-agent -s)" #start the ssh agent
 chmod 600 .deploy_key # this key should have push access
 ssh-add .deploy_key
-git clone git@github.com:ZarinPal-Lab/API-Docs.git API-Docs
-git checkout --orphan gh-pages
-cp -rv index.html API-Docs
+git clone -b my-branch git@github.com:user/myproject.git API-Docs
+cp index.html API-Docs/index.html
 cd API-Docs
 git add --all
 git commit -m "Travis CI"
