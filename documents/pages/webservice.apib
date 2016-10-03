@@ -287,6 +287,69 @@ Request for new webservice
         }
   }
 
+## post edit webservice [/webservice/edit.json]
+
+Edit this webservice
+
+### Edit  Webservice [POST]
+
++ Request (application/json)
+
+    + Headers
+    Authorization: {{access_token}}
+
+    + Body
+      {
+        "webservice" : "e45d421e-3dd8-11e6-9399-0800279114ca",
+        "purse" : 2,
+        "webservice_category_id" : 12,
+        "site_ip" : 1.1.1.1,
+      }
+
+    + Schema
+    {
+        "type" : "object",
+        "properties" : {
+            "webservice" : {
+                "type" : "string",
+                "description" : "chose webservice"
+            }
+            "purse" : {
+                "type" : "integer",
+                "description" : "chose purse for this webservice"
+            },
+            "webservice_category_id" : {
+                "type" : "integer",
+                "description" : "chose webservice category for this webservice"
+            },
+            "site_ip" : {
+                "type" : "string",
+                "description" : "this limits webservice to this ip. optional",
+            }
+        }
+    }
+
++ Response 400 (application/json)
+
+  + Body
+    {
+        "meta": {
+          "code": 400,
+          "error_type": "WebserviceNotFound",
+          "error_message": "Webservice Not Found."
+        }
+    }
+
++ Response 200 (application/json)
+
+  + Body
+  {
+        "meta": {
+          "code": 200,
+          "message": "Update webservice successfully"
+        }
+  }
+
 ## show price Zaringate for all webservices [/webservice/priceZaringate.json]
 
 Get price for request zarin gate
@@ -330,3 +393,239 @@ Get price for request zarin gate
         }
       }
   }
+
+## show price Ussd for all webservices [/webservice/priceUssd.json]
+
+Get price for ussd
+
+### PRICE USSD[GET]
+
++ Request (application/json)
+
+    + Headers
+    Authorization: {{access_token}}
+
++ Response 200 (application/json)
+
+  + Body
+  {
+  "data": [
+          {
+            "webservice": "4a0b7ff2-67ac-11e000c295eb8fc",
+            "amount": 20000
+          }
+      ],
+      "meta": {
+          "code": 200
+      }
+  }
+
+  + Schema
+  {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+            "webservice" : {
+                "type" : "string",
+                "description" : "webservice's entity_id"
+            },
+            "amount" : {
+                "type" : "integer",
+                "description" : "price ussd for this webservice",
+            }
+        }
+      }
+  }
+
+## post request zaringate [/webservice/requestZaringate.json]
+
+Request new Zaringate
+
+### Request New Zaringate [POST]
+
++ Request (application/json)
+
+    + Headers
+    Authorization: {{access_token}}
+
+    + Body
+      {
+          "webservice" : "e45d421e-3dd8-11e6-9399-0800279114ca",
+          "purse" : 1
+      }
+
+    + Schema
+    {
+        "type" : "object",
+        "properties" : {
+            "webservice" : {
+                "type" : "string",
+                "description" : "request for this webservice."
+            },
+            "purse" : {
+                "type" : "integer"
+            }
+        }
+    }
+
++ Response 400 (application/json)
+
+  + Body
+    {
+        "meta": {
+          "code": 400,
+          "error_type": "WebserviceNotFound",
+          "error_message": "Webservice Not Found."
+        }
+    }
+
++ Response 200 (application/json)
+
+  + Body
+  {
+        "meta": {
+          "code": 200,
+          "message": "Send request for zarin gate successfully"
+        }
+  }
+
+## post request ussd [/webservice/requestUssd.json]
+
+Request new USSD
+
+### Request New USSD [POST]
+
++ Request (application/json)
+
+    + Headers
+    Authorization: {{access_token}}
+
+    + Body
+      {
+          "webservice" : "e45d421e-3dd8-11e6-9399-0800279114ca",
+          "purse" : 1,
+          "ussd_id" : 12345
+      }
+
+    + Schema
+    {
+        "type" : "object",
+        "properties" : {
+            "webservice" : {
+                "type" : "string",
+                "description" : "request for this webservice."
+            },
+            "purse" : {
+                "type" : "integer"
+            },
+            "ussd_id" : {
+                "type" : "string",
+                "description" : "ussd code"
+            }
+        }
+    }
+
++ Response 400 (application/json)
+
+  + Body
+    {
+        "meta": {
+          "code": 400,
+          "error_type": "WebserviceNotFound",
+          "error_message": "Webservice Not Found."
+        }
+    }
+
++ Response 200 (application/json)
+
+  + Body
+  {
+        "meta": {
+          "code": 200,
+          "message": "Add ussd successfully"
+        }
+  }
+
+## list WebserviceCategory [/webservice/webserviceCategory.json]
+
+Get list of WebserviceCategory
+
+### List All WebserviceCategory [GET]
+
++ Request (application/json)
+
+    + Headers
+    Authorization: {{access_token}}
+
++ Response 200 (application/json)
+
+  + Body
+  {
+      "data": [
+      {
+        "public_id": 1,
+        "title": "خدمات اینترنت",
+        "parent_id": null
+      }
+      ],
+      "meta": {
+        "code": 200
+      }
+  }
+
+  + Schema
+  {
+    "type" : "array",
+    "items" : {
+        "type" : "object",
+        "properties" : {
+            "public_id" : {
+                "type" : "integer"
+            },
+            "title" : {
+                "type" : "string"
+            },
+            "parent_id" : {
+                "type" : "integer",
+                "description" : "for dropdown lists"
+            },
+            "category_id" : {
+                "type" : "integer",
+                "description" : "webservice's category"
+            }
+        }
+    }
+  }
+
+## delete webservice [delete/{{webservic_entity_id}}.json]
+
+delete this webservice
+
+### DELETE  Webservice [DELETE]
+
++ Request (application/json)
+
+    + Headers
+    Authorization: {{access_token}}
+
++ Response 400 (application/json)
+
+  + Body
+    {
+        "meta": {
+          "code": 400,
+          "error_type": "WebserviceNotFound",
+          "error_message": "Webservice Not Found."
+        }
+    }
+
+  + Response 200 (application/json)
+
+    + Body
+    {
+        "meta": {
+          "code": 200,
+          "message": "This Webservice delete successfully"
+        }
+    }
