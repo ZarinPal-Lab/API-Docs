@@ -26,9 +26,9 @@ Add one user's purse
             "type": "string",
             "description": "selected purse for cost create new purse"
             },
-            "name": {
-              "type": "string",
-              "description": "name for new purse"
+          "name": {
+            "type": "string",
+            "description": "name for new purse"
         }
       }
     }
@@ -74,7 +74,7 @@ List purse current user
 + Request (application/json)
 
     + Headers
-    Authorization : access_token
+    Authorization : {{access_token}}
 
 + Response 400 (application/json)
 
@@ -130,7 +130,7 @@ List purse current user
     }
   }
 
-## purse balance [/purse/balance/purse_number.json]
+## purse balance [/purse/balance/{{purse_number}}.json]
 
 get user's purse balance
 
@@ -194,7 +194,7 @@ Show info purse current user
 + Request (application/json)
 
     + Headers
-    Authorization : access_token
+    Authorization : {{access_token}}
 
 + Response 400 (application/json)
 
