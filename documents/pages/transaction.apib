@@ -1,0 +1,504 @@
+
+# Group Transactions
+
+## transaction transfer [/transaction/transfer.json]
+
+Transfer of funds from the purse to the Card
+
+### Transaction Transfer [POST]
+
++ Request (application/json)
+
+    + Headers
+    Authorization : {access_token}
+
+    + Body
+      {
+        "card_id" : "12ygjev1273wdwqdqw",
+        "amount" : 5000,
+        "purse" : 1
+      }
+
+    + Schema
+      {
+        "type" : "object",
+        "properties" : {
+          "card_id" : {
+              "type" : "string",
+              "description" : "card's entity id"
+          },
+          "amount" : {
+              "type" : "integer"
+          },
+          "purse" : {
+              "type" : "integer"
+          }
+        }
+      }
+
++ Response 400 (application/json)
+
+  + Body
+    {
+        "meta": {
+        "code": 400,
+        "error_type": "TransactionNotConfirmed",
+        "error_message": "Something went wrong, please try again."
+        }
+    }
+
++ Response 400 (application/json)
+
+  + Body
+    {
+        "meta": {
+        "code": 400,
+        "error_type": "CardNotFound",
+        "error_message": "The selected card not found or you are not allowed to use it."
+        }
+    }
+
++ Response 400 (application/json)
+
+  + Body
+    {
+        "meta": {
+        "code": 400,
+        "error_type": "PurseNotFound",
+        "error_message": "Purse Not Found."
+        }
+    }
+
++ Response 200 (application/json)
+
+    + Body
+    {
+      "meta": {
+        "code": 200,
+        "message": "Transfer money is successfully."
+        }
+    }
+
+## transaction purse to purse transfer [/transaction/purseToPurseTransfer.json]
+
+Transfer of funds from the purse to the purse
+
+### Transaction purse to purse transfer [POST]
+
++ Request (application/json)
+
+    + Headers
+    Authorization : {access_token}
+
+    + Body
+      {
+        "purse" : "1",
+        "zpId" : "zp.0.0",
+        "amount" : 5000,
+        "description" : "Description test",
+      }
+
+    + Schema
+      {
+        "type" : "object",
+        "properties" : {
+          "purse" : {
+              "type" : "integer",
+              "description" : "this is chose purse for sender."
+          },
+          "zpId" : {
+              "type" : "string",
+              "description" : "this is account number for receiver."
+          },
+          "amount" : {
+              "type" : "integer"
+          },
+          "description" : {
+              "type" : "integer"
+          }
+        }
+      }
+
++ Response 400 (application/json)
+
+  + Body
+    {
+        "meta": {
+        "code": 400,
+        "error_type": "TransactionNotConfirmed",
+        "error_message": "Something went wrong, please try again."
+        }
+    }
+
++ Response 400 (application/json)
+
+  + Body
+    {
+        "meta": {
+        "code": 400,
+        "error_type": "PurseNotFound",
+        "error_message": "Purse Not Found."
+        }
+    }
+
++ Response 200 (application/json)
+
+    + Body
+    {
+      "meta": {
+        "code": 200,
+        "message": "Transfer purse to purse is successfully"
+      },
+      "data": {
+        "transaction_public_id": 1
+     }
+    }
+
+## transaction recent [/transaction/recents.json?&limit=2& {purse} or {easypay_entity_id} or {webservice_entity_id}]
+
+Show transaction recent
+
+### Transaction recent [GET]
+
++ Request (application/json)
+
+    + Headers
+    Authorization : {access_token}
+
++ Response 400 (application/json)
+
+  + Body
+    {
+        "meta": {
+        "code": 400,
+        "error_type": "PurseNotFound",
+        "error_message": "Purse Not Found."
+        }
+    }
+
++ Response 200 (application/json)
+
+    + Body
+    {
+    "data": [
+      {
+        "public_id": 32123490133,
+        "effective_sign": 0,
+        "amount": 100,
+        "balance": 530500,
+        "created": "2016-08-24 11:47:18",
+        "from_ip": "127.0.0.1",
+        "description": "test",
+        "confirmed": "confirmed",
+        "from_user": {
+          "public_id": 111242,
+          "purse": 1,
+          "name": "مسعود لطفي",
+          "avatar": "//gravatar.com/avatar/9d8001ec6fb3c5fcd82afa73cc2e70a5?s=128&r=g&d=mm"
+        },
+        "to_user": {
+          "public_id": 111242,
+          "purse": 99,
+          "name": "مسعود لطفي",
+          "avatar": "//gravatar.com/avatar/9d8001ec6fb3c5fcd82afa73cc2e70a5?s=128&r=g&d=mm"
+        },
+        "payment_type": {
+          "name": "خريد از درگاه"
+        },
+        "payer_info": null,
+        "easypay_info": null
+      },
+    }
+
+    + Schema
+    {
+      "type" : "array",
+      "items" : {
+          "type" : "object",
+          "properties" : {
+              "public_id" : {
+                "type" : "integer"
+              },
+
+              "effective_sign" : {
+                "type" : "integer"
+              },
+              "amount" : {
+                "type" : "integer"
+              },
+              "balance" : {
+                "type" : "string"
+              },
+              "created" : {
+                "type" : "string"
+              },
+              "from_ip" : {
+                "type" : "string"
+              },
+              "description" : {
+                "type" : "string"
+              },
+              "confirmed" : {
+                "type" : "string"
+              },
+              "from_user" : {
+                "type" : "object",
+                "properties" : {
+                  "public_id": {
+                    "type" : "string",
+                  },
+                  "purse": {
+                    "type" : "integer",
+                  },
+                  "name": {
+                    "type" : "string",
+                  },
+                  "avatar": {
+                    "type" : "string",
+                  }
+                }
+              },
+              "to_user" : {
+                "type" : "object",
+                "properties" : {
+                  "public_id": {
+                    "type" : "string",
+                  },
+                  "purse": {
+                    "type" : "integer",
+                  },
+                  "name": {
+                    "type" : "string",
+                  },
+                  "avatar": {
+                    "type" : "string",
+                  }
+                }
+              },
+              "payment_type": {
+                "type": "object"
+              },
+              "payer_info": {
+                "type": "object"
+              },
+              "easypay_info": {
+                "type": "object"
+              }
+          }
+       }
+    }
+
+## transaction info [/transaction/{transaction_id}.json]
+
+Show transaction info
+
+### Transaction Info [GET]
+
++ Request (application/json)
+
+    + Headers
+    Authorization : {access_token}
+
++ Response 400 (application/json)
+
+  + Body
+    {
+        "meta": {
+        "code": 400,
+        "error_type": "TransactionNotFound",
+        "error_message": "The requested transaction not found."
+        }
+    }
+
++ Response 200 (application/json)
+
+    + Body
+    {
+    "data":
+      {
+        "public_id": 32123490133,
+        "effective_sign": 0,
+        "amount": 100,
+        "balance": 530500,
+        "created": "2016-08-24 11:47:18",
+        "from_ip": "127.0.0.1",
+        "description": "test",
+        "confirmed": "confirmed",
+        "from_user": {
+          "public_id": 111242,
+          "purse": 1,
+          "name": "مسعود لطفي",
+          "avatar": "//gravatar.com/avatar/9d8001ec6fb3c5fcd82afa73cc2e70a5?s=128&r=g&d=mm"
+        },
+        "to_user": {
+          "public_id": 111242,
+          "purse": 99,
+          "name": "مسعود لطفي",
+          "avatar": "//gravatar.com/avatar/9d8001ec6fb3c5fcd82afa73cc2e70a5?s=128&r=g&d=mm"
+        },
+        "payment_type": {
+          "name": "خريد از درگاه"
+        },
+        "payer_info": null,
+        "easypay_info": null
+      },
+    }
+
+    + Schema
+    {
+      "type" : "object",
+      "properties" : {
+          "public_id" : {
+            "type" : "integer"
+          },
+
+          "effective_sign" : {
+            "type" : "integer"
+          },
+          "amount" : {
+            "type" : "integer"
+          },
+          "balance" : {
+            "type" : "string"
+          },
+          "created" : {
+            "type" : "string"
+          },
+          "from_ip" : {
+            "type" : "string"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "confirmed" : {
+            "type" : "string"
+          },
+          "from_user" : {
+            "type" : "object",
+            "properties" : {
+              "public_id": {
+                "type" : "string",
+              },
+              "purse": {
+                "type" : "integer",
+              },
+              "name": {
+                "type" : "string",
+              },
+              "avatar": {
+                "type" : "string",
+              }
+            }
+          },
+          "to_user" : {
+            "type" : "object",
+            "properties" : {
+              "public_id": {
+                "type" : "string",
+              },
+              "purse": {
+                "type" : "integer",
+              },
+              "name": {
+                "type" : "string",
+              },
+              "avatar": {
+                "type" : "string",
+              }
+            }
+          },
+          "payment_type": {
+            "type": "object"
+          },
+          "payer_info": {
+            "type": "object"
+          },
+          "easypay_info": {
+            "type": "object"
+          }
+      }
+    }
+
+## Add Found [/transaction/addFund.json]
+
+AddFund for purse
+
+### Add Found [POST]
+
++ Request (application/json)
+
+    + Headers
+    Authorization : {access_token}
+
+    + Body
+      {
+        "card_id" : "12ygjev1273wdwqdqw",
+        "amount" : 5000,
+        "purse" : 1,
+        "redirect_url" : "http://www.test.com"
+      }
+
+    + Schema
+      {
+        "type" : "object",
+        "properties" : {
+            "card_id" : {
+                "type" : "string",
+                "description" : "card's entity id"
+            },
+            "amount" : {
+                "type" : "integer"
+            },
+            "purse" : {
+                "type" : "integer"
+            },
+            "redirect_url" : {
+                "type" : "integer"
+            }
+         }
+      }
+
++ Response 400 (application/json)
+
+  + Body
+    {
+        "meta": {
+        "code": 400,
+        "error_type": "TransactionInvalidPurse",
+        "error_message": "The purse is invalid."
+        }
+    }
+
++ Response 400 (application/json)
+
+  + Body
+    {
+        "meta": {
+        "code": 400,
+        "error_type": "TransactionInvalidCard",
+        "error_message": "The card is invalid."
+        }
+    }
+
++ Response 400 (application/json)
+
+  + Body
+    {
+        "meta": {
+        "code": 400,
+        "error_type": "TransactionAmountTooSmall",
+        "error_message": "The minimum transfer amount is 100 tomans."
+        }
+    }
+
++ Response 200 (application/json)
+
+    + Body
+    {
+    "data": {
+          "authority": "5767cba02128e8bf1677b008"
+        },
+        "meta": {
+          "code": 200
+        }
+    }
