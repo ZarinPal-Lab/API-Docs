@@ -1,0 +1,329 @@
+
+# Group Zarincard
+
+## zarincard holderName [/zarincard/holderName/{pan_zarincard}.json]
+
+Get the owner name, bank name, bank Sheba Id of the card
+
+### Zarincard HolderName [GET]
+
++ Request (application/json)
+
+    + Headers
+    Authorization : {access_token}
+
++ Response 400 (application/json)
+
+    + Body
+      {
+          "meta": {
+          "code": 400,
+          "error_type": "invalidDestinationPan",
+          "error_message": "Destination pan is invalid."
+          }
+      }
+
++ Response 200 (application/json)
+
+  + Body
+    {
+      "data": {
+        "holder_name": "کاربر ۱",
+         "bank_info": {
+             "name": "xxxxx",
+             "slug": "xxxxx",
+             "sheba_id": "###"
+         }
+      },
+      "meta": {
+        "code": 200,
+      }
+    }
+
+    + Schema
+      {
+        "type" : "object",
+        "properties" : {
+          "holder_name" : {
+            "type" : "string",
+            "description" : "user's name."
+          },
+          "bank_info" : {
+            "type" : "object",
+            "properties" : {
+                "name" : {
+                    "type" : "string",
+                    "description" : "bank's name."
+                },
+                "slug" : {
+                    "type" : "string",
+                    "description" : "bank's slug."
+                },
+                "sheba_id" : {
+                    "type" : "string",
+                    "description" : "banks's sheba_id."
+                }
+            }
+          }
+        }
+      }
+
+## zarincard statement [/zarincard/statement.json]
+
+Get statement for Zarincard
+
+### Statement Zarincard [POST]
+
++ Request (application/json)
+
+    + Headers
+    Authorization : {access_token}
+
+    + Body
+      {
+         "card_id" : "bvcxzsdfghjiuytr3ffgjhgffg",
+         "password" : "123456",
+         "cvv2" : "1234"
+      }
+
+    + Schema
+      {
+          "type" : "object",
+          "properties" : {
+              "card_id" : {
+                "type" : "string",
+                "description" : "zarincard's entity id"
+              },
+              "password" : {
+                "type" : "string"
+              },
+              "cvv2" : {
+                "type" : "string"
+              }
+          }
+      }
+
++ Response 400 (application/json)
+
+    + Body
+      {
+          "meta": {
+          "code": 400,
+          "error_type": "WrongCredentials",
+          "error_message": "Wrong password or cvv2."
+          }
+      }
+
++ Response 200 (application/json)
+
+  + Body
+  {
+      "data":
+      {
+          "balance": 475329,
+          "statement":
+          {
+            "amount": 2000,
+            "time": "94/10/13",
+            "description": "خريد اینترنتی"
+          }
+          "meta": {
+            "code": 200
+          }
+        }
+  }
+
+  + Schema
+  {
+    "type": "object",
+    "properties": {
+      "balance": {
+        "type": "integer"
+      },
+      "balance": {
+        "type": "object",
+        "properties": {
+          "amount" : {
+            "type" : "integer"
+          },
+          "time" : {
+            "type" : "string"
+          },
+          "description" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  }
+
+## transfer shetab [/zarincard/transferShetab.json]
+
+Transfer to shetab
+
+### Transfer shetab [POST]
+
++ Request (application/json)
+
+    + Headers
+    Authorization : {access_token}
+
+    + Body
+      {
+        "card_id" : "################",
+        "password" : "######",
+        "cvv2" : "####",
+        "dst_pan" : "################",
+        "amount" : "#####"
+      }
+
+    + Schema
+      {
+        "type" : "object",
+        "properties" : {
+            "card_id" : {
+              "type" : "string",
+              "description" : "zarincard's entity id"
+            },
+            "password" : {
+              "type" : "string"
+            },
+            "cvv2" : {
+              "type" : "string"
+            },
+            "dst_pan" : {
+              "type" : "string",
+              "description" : "card's pan for receiver"
+            },
+            "amount" : {
+              "type" : "string"
+            }
+        }
+      }
+
++ Response 400 (application/json)
+
+    + Body
+      {
+          "meta": {
+          "code": 400,
+          "error_type": "WrongCredentials",
+          "error_message": "Wrong password or cvv2."
+          }
+      }
+
++ Response 400 (application/json)
+
+    + Body
+      {
+          "meta": {
+          "code": 400,
+          "error_type": "CardNotFound",
+          "error_message": "The selected card not found or you are not allowed to use it."
+          }
+      }
+
++ Response 400 (application/json)
+
+    + Body
+      {
+          "meta": {
+          "code": 400,
+          "error_type": "AmountTooSmall",
+          "error_message": "Amount is too small."
+          }
+      }
+
++ Response 200 (application/json)
+
+  + Body
+  {
+      "data":
+      {
+          "ref_id": "########",
+          "date": "####-##-## ##:##:##",
+          "card_balance": ######,
+          "dst_card_pan": "################",
+          "dst_card_holder_name": "xxxxxxx",
+          "transfer_amount": "####",
+          "meta": {
+            "code": 200
+          }
+        }
+  }
+
+  + Schema
+  {
+    "type": "object",
+    "properties": {
+      "ref_id": {
+        "type": "string",
+        "description" : "ref number for this transaction."
+      },
+      "date": {
+        "type": "string"
+      },
+      "card_balance": {
+        "type": "string",
+        "description" : "card's balance."
+      },
+      "dst_card_pan": {
+        "type": "string",
+        "description" : "card's pan for receiver"
+      },
+      "dst_card_holder_name": {
+        "type": "string",
+        "description" : "user's name for receiver"
+      },
+      "transfer_amount": {
+        "type": "string",
+        "description" : "transaction's amount."
+      }
+    }
+  }
+
+## requestIssue [/zarincard/requestIssue.json]
+
+Perform requesting zarincard
+
+### Zarincard requestIssue [POST]
+
++ Request (application/json)
+
+    + Headers
+    Authorization : {access_token}
+
+    + Body
+      {
+          "purse_number" : 1
+      }
+
+    + Schema {
+          "type" : "object",
+          "properties" : {
+              "purse_number" : {
+                "type" : "integer"
+              }
+          }
+      }
+
++ Response 400 (application/json)
+
+    + Body
+      {
+          "meta": {
+          "code": 400,
+          "error_type": "'ZarinCardUnknownError'",
+          "error_message": "Unknown error."
+          }
+      }
+
++ Response 200 (application/json)
+
+    + Body
+    {
+      "meta": {
+        "code": 200,
+        "message": "Your request has been successfully submitted."
+        }
+    }
