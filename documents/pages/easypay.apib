@@ -1,0 +1,490 @@
+
+# Group Easypays
+
+## list easypay [/easypay/list.json]
+
+Get list of current users Easypays
+
+### List Easypay [GET]
+
++ Request (application/json)
+
+    + Headers
+    Authorization : {access_token}
+
++ Response 200 (application/json)
+
+    + Body
+    {
+    "data": [
+        {
+          "entity_id": "57d3b79e3afe47003131fa01",
+          "title": "new easypay from api",
+          "description": "sdsdsdsssdsdsss",
+          "price": 4000,
+          "required_fields": {
+            "email": "required",
+            "name": "required",
+            "mobile": "required"
+          },
+          "show_receipt": false,
+          "successful_redirect_url": "http://www.test.com",
+          "failed_redirect_url": "http://www.test.com",
+          "limit": 1,
+          "purse": 1,
+          "webservice_id": null,
+          "purse_name": "اصلی زرين پال",
+          "public_id": 3520,
+          "status": true,
+          "updated_at": "2016-10-02 16:23:08",
+          "created_at": "2016-09-10 12:04:54"
+        },
+        ]
+    }
+
+    + Schema
+    {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "entity_id": {
+            "type": "string",
+          },
+          "title": {
+            "type": "string",
+            "description": "easypay's title"
+          },
+          "description": {
+            "type": "string"
+          },
+          "price": {
+            "type": "integer",
+          },"entity_id": {
+            "type": "string",
+          },
+          "required_fields": {
+            "type": "object",
+            "properties" : {
+              "email": {
+                "type" : "string",
+                "description" : "check required this field"
+              },
+              "name": {
+                "type" : "string",
+                "description" : "check required this field"
+              },
+              "mobile": {
+                "type" : "string",
+                "description" : "check required this field"
+              },
+            }
+          },
+          "show_receipt" : {
+            "type": "boolean",
+            "description" : "if set true show receipt.else do not show receipt"
+          },
+          "successful_redirect_url" : {
+            "type": "string"
+          },
+          "failed_redirect_url" : {
+            "type": "string"
+          },
+          "limit" : {
+            "type": "integer",
+            "description" : "limit for this easypay."
+          },
+          "purse" : {
+            "type" : "integer"
+          },
+          "webservice_id": {
+            "type": "string"
+          },
+          "purse_name": {
+            "type": "string"
+          },
+          "public_id": {
+            "type": "integer"
+          },
+          "status": {
+            "type": "boolean",
+            "description" : "check active or not active for this easypay."
+          },
+          "updated_at": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          }
+        }
+      }
+    }
+
+## show easypay [/show/{easypay_entity_id}.json]
+
+Show information easypay
+
+### Show Easypay [GET]
+
++ Request (application/json)
+
+    + Headers
+    Authorization : {access_token}
+
++ Response 400 (application/json)
+
+  + Body
+    {
+        "meta": {
+        "code": 400,
+        "error_type": "EasypayNotFound",
+        "error_message": "Easypay Not Found."
+        }
+    }
+
++ Response 200 (application/json)
+
+    + Body
+    {
+    "data":
+      {
+          "entity_id": "57d3b79e3afe47003131fa01",
+          "title": "new easypay from api",
+          "description": "sdsdsdsssdsdsss",
+          "price": 4000,
+          "required_fields": {
+            "email": "required",
+            "name": "required",
+            "mobile": "required"
+          },
+          "show_receipt": false,
+          "successful_redirect_url": "http://www.test.com",
+          "failed_redirect_url": "http://www.test.com",
+          "limit": 1,
+          "purse": 1,
+          "webservice_id": null,
+          "purse_name": "اصلی زرين پال",
+          "public_id": 3520,
+          "status": true,
+          "updated_at": "2016-10-02 16:23:08",
+          "created_at": "2016-09-10 12:04:54"
+        }
+    }
+
+    + Schema
+    {
+      "type": "object",
+      "properties": {
+        "entity_id": {
+          "type": "string",
+        },
+        "title": {
+          "type": "string",
+          "description": "easypay's title"
+        },
+        "description": {
+          "type": "string"
+        },
+        "price": {
+          "type": "integer",
+        },"entity_id": {
+          "type": "string",
+        },
+        "required_fields": {
+          "type": "object",
+          "properties" : {
+            "email": {
+              "type" : "string",
+              "description" : "check required this field"
+            },
+            "name": {
+              "type" : "string",
+              "description" : "check required this field"
+            },
+            "mobile": {
+              "type" : "string",
+              "description" : "check required this field"
+            },
+          }
+        },
+        "show_receipt" : {
+          "type": "boolean",
+          "description" : "if set true show receipt.else do not show receipt"
+        },
+        "successful_redirect_url" : {
+          "type": "string"
+        },
+        "failed_redirect_url" : {
+          "type": "string"
+        },
+        "limit" : {
+          "type": "integer",
+          "description" : "limit for this easypay."
+        },
+        "purse" : {
+          "type" : "integer"
+        },
+        "webservice_id": {
+          "type": "string"
+        },
+        "purse_name": {
+          "type": "string"
+        },
+        "public_id": {
+          "type": "integer"
+        },
+        "status": {
+          "type": "boolean",
+          "description" : "check active or not active for this easypay."
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        }
+      }
+    }
+
+## easypay create [/easypay/create.json]
+
+Create user's easypay
+
+### Create Easypay [POST]
+
++ Request (application/json)
+
+    + Headers
+    Authorization : {access_token}
+
+    + Body
+    {
+        "title" : "new easypay from api",
+        "price" : "4000",
+        "purse" : 2,
+        "required_fields" : {
+          "email" : "-1",
+          "name" : "0",
+          "mobile" : "1"
+        },
+        "type" : 1,
+        "show_receipt" : 0,
+        "successful_redirect_url" : "http://www.test.com",
+        "failed_redirect_url" : "http://www.test.com",
+        "limited" : 0,
+        "limit" : 1
+    }
+
+    + Schema
+    {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "easypay's title"
+        }
+        "price": {
+          "type": "integer",
+        },
+        "purse" : {
+          "type" : "integer"
+        },
+        "required_fields": {
+          "type": "object",
+          "properties" : {
+            "email": {
+              "type" : "string",
+              "description" : "check required this field"
+            },
+            "name": {
+              "type" : "string",
+              "description" : "check required this field"
+            },
+            "mobile": {
+              "type" : "string",
+              "description" : "check required this field"
+            },
+          }
+        },
+        "type" : {
+            "type" : "integer",
+            "description" : "if set 0 this is Simple Easypay and set 1 This is Advanced"
+        }
+        "show_receipt" : {
+          "type": "boolean",
+          "description" : "if set true show receipt.else do not show receipt"
+        },
+        "successful_redirect_url" : {
+          "type": "string"
+        },
+        "failed_redirect_url" : {
+          "type": "string"
+        },
+        "limit" : {
+          "type": "integer",
+          "description" : "limit for this easypay."
+        },
+        "limited" : {
+          "type" : "integer",
+          "description" : "if you want to set limit you must set this to 1"
+        }
+      }
+    }
+
++ Response 200 (application/json)
+
+    + Body
+    {
+      "meta": {
+        "code": 200,
+        "message": "Create Easypay successfully."
+        }
+    }
+
+## easypay edit [/easypay/edit/{easypay_entity_id}.json]
+
+Edit user's easypay
+
+### Edit Easypay [PUT]
+
++ Request (application/json)
+
+    + Headers
+    Authorization : {access_token}
+
+    + Body
+    {
+        "title" : "new easypay from api",
+        "price" : "4000",
+        "purse" : 2,
+        "required_fields" : {
+          "email" : "-1",
+          "name" : "0",
+          "mobile" : "1"
+        },
+        "type" : 1,
+        "show_receipt" : 0,
+        "successful_redirect_url" : "http://www.test.com",
+        "failed_redirect_url" : "http://www.test.com",
+        "limited" : 0,
+        "limit" : 1
+    }
+
+    + Schema
+    {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "easypay's title"
+        }
+        "price": {
+          "type": "integer",
+        },
+        "purse" : {
+          "type" : "integer"
+        },
+        "required_fields": {
+          "type": "object",
+          "properties" : {
+            "email": {
+              "type" : "string",
+              "description" : "check required this field"
+            },
+            "name": {
+              "type" : "string",
+              "description" : "check required this field"
+            },
+            "mobile": {
+              "type" : "string",
+              "description" : "check required this field"
+            },
+          }
+        },
+        "type" : {
+            "type" : "integer",
+            "description" : "if set 0 this is Simple Easypay and set 1 This is Advanced"
+        }
+        "show_receipt" : {
+          "type": "boolean",
+          "description" : "if set true show receipt.else do not show receipt"
+        },
+        "successful_redirect_url" : {
+          "type": "string"
+        },
+        "failed_redirect_url" : {
+          "type": "string"
+        },
+        "limit" : {
+          "type": "integer",
+          "description" : "limit for this easypay."
+        },
+        "limited" : {
+          "type" : "integer",
+          "description" : "if you want to set limit you must set this to 1"
+        }
+      }
+    }
+
++ Response 400 (application/json)
+
+  + Body
+    {
+        "meta": {
+        "code": 400,
+        "error_type": "EasypayNotFound",
+        "error_message": "Easypay Not Found."
+        }
+    }
+
++ Response 400 (application/json)
+    + Body
+      {
+          "meta": {
+            "code": 400,
+            "error_type": "'PurseNotFound'",
+            "error_message": "Purse Not Found."
+          }
+      }
+
++ Response 200 (application/json)
+
+    + Body
+    {
+      "meta": {
+        "code": 200,
+        "message": "Update Easypay successfully."
+        }
+    }
+
+## delete easypay [/delete/{easypay_entity_id}.json]
+
+delete this easypay
+
+### Delete Easypay [DELETE]
+
++ Request (application/json)
+
+    + Headers
+    Authorization: {access_token}
+
++ Response 400 (application/json)
+
+  + Body
+    {
+        "meta": {
+          "code": 400,
+          "error_type": "EasypayNotFound",
+          "error_message": "Easypay Not Found."
+        }
+    }
+
++ Response 200 (application/json)
+
+    + Body
+    {
+        "meta": {
+          "code": 200,
+          "message": "This Easypay delete successfully"
+        }
+    }
