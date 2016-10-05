@@ -29,10 +29,10 @@ Get list of current users Coupons
           "webservice_id": "57df865af29889001f6",
           "easypay_id": null,
           "limit": "2",
-          "expired_at": "2021-02-20 01:01:00"
-        },
-        "meta": {
-          "code": 200
+          "expired_at": "2021-02-20 01:01:00",
+          "meta": {
+            "code": 200
+            }
         }
         ]
   }
@@ -52,10 +52,7 @@ Get list of current users Coupons
             },
             "type" : {
                 "type" : "webservice",
-                "description" : "if set webservice, this is for webservices .
-                                 if set easypaym this is for easypays and
-                                 if set all this for webservices and easypays
-                              "
+                "description" : "if set webservice, this is for webservices .if set easypaym this is for easypays and if set all this for webservices and easypays"
             },
             "min_amount" : {
                 "type" : "string",
@@ -90,7 +87,7 @@ Get list of current users Coupons
             }
         }
     }
-  }
+}
 
 ## show Coupon [/coupon/show/{coupon_entity_id}.json]
 
@@ -118,8 +115,7 @@ Get show information for one Coupon
 
   + Body
   {
-      "data"
-        {
+      "data" : {
           "entity_id": "57df865af29889001f6dce12",
           "code": "12345",
           "type": "webservice",
@@ -151,10 +147,7 @@ Get show information for one Coupon
         },
         "type" : {
             "type" : "webservice",
-            "description" : "if set webservice, this is for webservices .
-                             if set easypaym this is for easypays and
-                             if set all this for webservices and easypays
-                          "
+            "description" : "if set webservice, this is for webservices . if set easypaym this is for easypays and if set all this for webservices and easypays"
         },
         "min_amount" : {
             "type" : "string",
@@ -188,7 +181,7 @@ Get show information for one Coupon
             "description" : "this is expiration date for coupon",
         }
     }
-  }
+}
 
 ## post create coupon [/coupon/create.json]
 
@@ -217,53 +210,49 @@ Request for new coupon
 
     + Schema
     {
-      "type" : "object",
-      "properties" : {
-          "code" : {
-              "type" : "string",
-              "description" : "coupon's code",
-          },
-          "discount" : {
-              "type" : "object",
-              "properties" : {
-                  "max_amount" : {
-                      "type" : "string",
-                      "description" : "This is max discount"
-                  },
-                  "percent" : {
-                      "type" : "string",
-                      "description" : "This is percent discount"
-                  }
-              }
-          },
-          "webservice_id" : {
-              "type" : "string"
-          },
-          "easypay_id" : {
-              "type" : "string"
-          },
-          "expired_at" : {
-              "type" : "string",
-              "description" : "this is expiration date for coupon",
-          },
-          "limit" : {
-              "type" : "string",
-              "description" : "this is limit for coupon",
-          },
-          "type" : {
-              "type" : "webservice",
-              "description" : "if set webservice, this is for webservices .
-                               if set easypaym this is for easypays and
-                               if set all this for webservices and easypays
-                            "
-          },
-          "min_amount" : {
-              "type" : "string",
-              "description" : "This is min discount"
-          }
-      }
+    "type" : "object",
+    "properties" : {
+        "code" : {
+            "type" : "string",
+            "description" : "coupon's code",
+        },
+        "discount" : {
+            "type" : "object",
+            "properties" : {
+                "max_amount" : {
+                    "type" : "string",
+                    "description" : "This is max discount"
+                },
+                "percent" : {
+                    "type" : "string",
+                    "description" : "This is percent discount"
+                }
+            }
+        },
+        "webservice_id" : {
+            "type" : "string"
+        },
+        "easypay_id" : {
+            "type" : "string"
+        },
+        "expired_at" : {
+            "type" : "string",
+            "description" : "this is expiration date for coupon",
+        },
+        "limit" : {
+            "type" : "string",
+            "description" : "this is limit for coupon",
+        },
+        "type" : {
+            "type" : "webservice",
+            "description" : "if set webservice, this is for webservices . if set easypaym this is for easypays and if set all this for webservices and easypays"
+        },
+        "min_amount" : {
+            "type" : "string",
+            "description" : "This is min discount"
+        }
     }
-
+}
 
 + Response 400 (application/json)
 
@@ -314,7 +303,7 @@ Edit this coupon
         "discount" : { "max_amount" : "333"},
         "expired_at" : "2021-02-20 01:01:00",
         "easypay_id" : null,
-        "webservice_id" : "16d80a22-0d36-11e6-b4f0-000c295eb8fc"
+        "webservice_id" : "16d80a22-0d36-11e6-b4f0-000c295eb8fc",
         "limit" : "11",
         "min_amount" : "12345",
         "type" : "webservice"
@@ -361,13 +350,10 @@ Edit this coupon
           },
           "type" : {
               "type" : "webservice",
-              "description" : "if set webservice, this is for webservices .
-                               if set easypaym this is for easypays and
-                               if set all this for webservices and easypays
-                            "
+              "description" : "if set webservice, this is for webservices . if set easypaym this is for easypays and if set all this for webservices and easypays "
           }
       }
-    }
+  }
 
 + Response 400 (application/json)
 
