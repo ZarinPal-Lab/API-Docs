@@ -629,3 +629,56 @@ delete this webservice
           "message": "This Webservice delete successfully"
         }
     }
+
+## Trust logo [/verifyWebsite/[domain].json]
+
+### Trust Logo [GET]
+
++ Request (application/json)
+
++ Response 400 (application/json)
+
+  + Body
+    {
+        "meta": {
+          "code": 400,
+          "error_type": "webserviceNotConfirm",
+          "error_message": "Webservice Not Found."
+        }
+    }
+
++ Response 200 (application/json)
+
+  + Body
+  {
+      "data": [
+      {
+        "domain": "test.ir",
+        "name": "test",
+        "updated": "2016-10-08 15:41:41",
+        "logo": "//logoland.zarinpal.com/0ec15027fa4a8634fd16b5988a/125x125.png"
+      }
+      ],
+      "meta": {
+        "code": 200
+      }
+  }
+
+  + Schema
+  {
+    "type" : "object",
+    "properties" : {
+        "domain" : {
+            "type" : "string"
+        },
+        "name" : {
+            "type" : "string"
+        },
+        "updated" : {
+            "type" : "string"
+        },
+        "logo" : {
+            "type" : "string"
+        }
+    }
+  }
