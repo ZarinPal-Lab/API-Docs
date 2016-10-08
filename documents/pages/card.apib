@@ -1,7 +1,7 @@
 
 # Group Cards
 
-## card list [/card/list.json]
+## card list [/cards.json]
 
 Show all user's card
 
@@ -10,7 +10,7 @@ Show all user's card
 + Request (application/json)
 
     + Headers
-    Authorization : {access_token}
+    Authorization : [access_token]
 
 + Response 400 (application/json)
 
@@ -96,7 +96,7 @@ Show one user's card
 + Request (application/json)
 
     + Headers
-    Authorization : {access_token}
+    Authorization : [access_token]
 
 + Response 400 (application/json)
 
@@ -182,7 +182,7 @@ add user's card
 + Request (application/json)
 
     + Headers
-    Authorization : {access_token}
+    Authorization : [access_token]
     + Body
         {
           "iban" : "IR150570028080012345531301",
@@ -251,7 +251,7 @@ add user's card
         }
     }
 
-## card edit [/card/edit/{card_entity_id}.json]
+## card edit [/card/edit/[card_entity_id].json]
 
 edit user's card
 
@@ -260,7 +260,7 @@ edit user's card
 + Request (application/json)
 
   + Headers
-  Authorization : {access_token}
+  Authorization : [access_token]
   + Body
       {
         "pan" : "6362142100133635",

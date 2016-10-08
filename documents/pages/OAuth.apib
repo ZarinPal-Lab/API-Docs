@@ -9,14 +9,16 @@ issue access token
 
 + Request (application/json)
 
-    + Headers
-    grant_type : {grant_type},
-    client_id : {client_id},
-    client_secret : {client_secret},
-    username : {email} or {mobile},
-    password : {password},
-    scope : {scope},
-    is_web_app : true or false
+    + Body
+      {
+          grant_type : [grant_type],
+          client_id : [client_id],
+          client_secret : [client_secret],
+          username : [email] or [mobile],
+          password : [password],
+          scope : [scope],
+          is_web_app : true or false
+      }
 
 + Response 400 (application/json)
 
@@ -113,7 +115,7 @@ logout user in app
 + Request (application/json)
 
     + Headers
-    Authorization : {access_token}
+    Authorization : [access_token]
 
 + Response 400 (application/json)
 

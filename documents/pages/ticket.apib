@@ -10,7 +10,7 @@ List summary user's tickets
 + Request (application/json)
 
     + Headers
-    Authorization : {access_token}
+    Authorization : [access_token]
 
 + Response 200 (application/json)
 
@@ -49,7 +49,7 @@ List ticket of user
 + Request (application/json)
 
     + Headers
-    Authorization : {access_token}
+    Authorization : [access_token]
 
 + Response 200 (application/json)
 
@@ -134,7 +134,7 @@ List all department
 + Request (application/json)
 
     + Headers
-    Authorization : {access_token}
+    Authorization : [access_token]
 
 + Response 200 (application/json)
 
@@ -167,7 +167,7 @@ List all department
       }
    }
 
-## ticket show [/ticket/show/{ticket_entity_id}.json]
+## ticket show [/ticket/show/[ticket_entity_id].json]
 
 List replies of ticket
 
@@ -176,7 +176,7 @@ List replies of ticket
 + Request (application/json)
 
     + Headers
-    Authorization : {access_token}
+    Authorization : [access_token]
 
 + Response 400 (application/json)
 
@@ -264,7 +264,7 @@ List replies of ticket
       }
     }
 
-  ## list department [/ticket/getDepartment}.json]
+  ## list department [/ticket/[getDepartment].json]
 
   List all department
 
@@ -273,7 +273,7 @@ List replies of ticket
   + Request (application/json)
 
       + Headers
-      Authorization : {access_token}
+      Authorization : [access_token]
 
   + Response 200 (application/json)
 
@@ -306,7 +306,7 @@ List replies of ticket
         }
      }
 
-  ## ticket show [/ticket/show/{ticket_entity_id}.json]
+  ## ticket show [/ticket/show/[ticket_entity_id].json]
 
   List replies of ticket
 
@@ -315,7 +315,7 @@ List replies of ticket
   + Request (application/json)
 
       + Headers
-      Authorization : {access_token}
+      Authorization : [access_token]
 
   + Response 400 (application/json)
 
@@ -453,7 +453,7 @@ Create new Ticket
 + Request (application/json)
 
   + Headers
-  Authorization : {access_token}
+  Authorization : [access_token]
 
   + Body
     {
@@ -491,7 +491,7 @@ Create new Ticket
       }
     }
 
-## reply ticket [/ticket/reply/{ticket_entity_id}.json]
+## reply ticket [/ticket/reply/[ticket_entity_id].json]
 
 Reply new Ticket
 
@@ -500,7 +500,7 @@ Reply new Ticket
 + Request (application/json)
 
     + Headers
-    Authorization : {access_token}
+    Authorization : [access_token]
 
     +Body
       {
@@ -541,7 +541,7 @@ Close Ticket
 + Request (application/json)
 
     + Headers
-    Authorization : {access_token}
+    Authorization : [access_token]
 
     +Body
       {
@@ -579,16 +579,16 @@ Close Ticket
       }
     }
 
-## ticket find [/ticket/{ticket_public_id}.json]
+## ticket find [/ticket/[ticket_public_id].json]
 
-Find ticket by {ticket_public_id}
+Find ticket by [ticket_public_id]
 
 ### Find Ticket [GET]
 
 + Request (application/json)
 
     + Headers
-    Authorization : {access_token}
+    Authorization : [access_token]
 
 + Response 400 (application/json)
 

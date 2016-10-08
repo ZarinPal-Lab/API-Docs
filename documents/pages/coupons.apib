@@ -10,7 +10,7 @@ Get list of current users Coupons
 + Request (application/json)
 
     + Headers
-    Authorization: {access_token}
+    Authorization: [access_token]
 
 + Response 200 (application/json)
 
@@ -89,7 +89,7 @@ Get list of current users Coupons
     }
 }
 
-## show Coupon [/coupon/show/{coupon_entity_id}.json]
+## show Coupon [/coupon/show/[coupon_entity_id].json]
 
 Get show information for one Coupon
 
@@ -98,7 +98,7 @@ Get show information for one Coupon
 + Request (application/json)
 
     + Headers
-    Authorization: {access_token}
+    Authorization: [access_token]
 
 + Response 400 (application/json)
 
@@ -192,7 +192,7 @@ Request for new coupon
 + Request (application/json)
 
     + Headers
-    Authorization: {access_token}
+    Authorization: [access_token]
 
     + Body
       {
@@ -290,7 +290,7 @@ Request for new coupon
 
 Edit this coupon
 
-### Edit  Coupon [POST]
+### Edit  Coupon [PUT]
 
 + Request (application/json)
 

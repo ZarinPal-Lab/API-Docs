@@ -11,7 +11,7 @@ Get list of current users Webservice
 + Request (application/json)
 
     + Headers
-    Authorization: {access_token}
+    Authorization: [access_token]
 
 + Response 400 (application/json)
 
@@ -102,7 +102,7 @@ Get list of current users Webservice
     }
   }
 
-## show webservice [/webservice/show/{webservice_entity_id}.json]
+## show webservice [/webservice/show/[webservice_entity_id].json]
 
 Get show information for one webservice
 
@@ -111,7 +111,7 @@ Get show information for one webservice
 + Request (application/json)
 
     + Headers
-    Authorization: {access_token}
+    Authorization: [access_token]
 
 + Response 400 (application/json)
 
@@ -206,7 +206,7 @@ Request for new webservice
 + Request (application/json)
 
     + Headers
-    Authorization: {access_token}
+    Authorization: [access_token]
 
     + Body
       {
@@ -297,7 +297,7 @@ Edit this webservice
 + Request (application/json)
 
     + Headers
-    Authorization: {access_token}
+    Authorization: [access_token]
 
     + Body
       {
@@ -360,7 +360,7 @@ Get price for request zarin gate
 + Request (application/json)
 
     + Headers
-    Authorization: {access_token}
+    Authorization: [access_token]
 
 + Response 200 (application/json)
 
@@ -404,7 +404,7 @@ Get price for ussd
 + Request (application/json)
 
     + Headers
-    Authorization: {access_token}
+    Authorization: [access_token]
 
 + Response 200 (application/json)
 
@@ -448,7 +448,7 @@ Request new Zaringate
 + Request (application/json)
 
     + Headers
-    Authorization: {access_token}
+    Authorization: [access_token]
 
     + Body
       {
@@ -500,7 +500,7 @@ Request new USSD
 + Request (application/json)
 
     + Headers
-    Authorization: {access_token}
+    Authorization: [access_token]
 
     + Body
       {
@@ -557,7 +557,7 @@ Get list of WebserviceCategory
 + Request (application/json)
 
     + Headers
-    Authorization: {access_token}
+    Authorization: [access_token]
 
 + Response 200 (application/json)
 
@@ -599,7 +599,7 @@ Get list of WebserviceCategory
     }
   }
 
-## delete webservice [/delete/{webservic_entity_id}.json]
+## delete webservice [/delete/[webservic_entity_id].json]
 
 delete this webservice
 
@@ -608,7 +608,7 @@ delete this webservice
 + Request (application/json)
 
     + Headers
-    Authorization: {access_token}
+    Authorization: [access_token]
 
 + Response 400 (application/json)
 

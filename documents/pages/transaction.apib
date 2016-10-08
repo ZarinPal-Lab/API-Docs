@@ -10,7 +10,7 @@ Transfer of funds from the purse to the Card
 + Request (application/json)
 
     + Headers
-    Authorization : {access_token}
+    Authorization : [access_token]
 
     + Body
       {
@@ -88,7 +88,7 @@ Transfer of funds from the purse to the purse
 + Request (application/json)
 
     + Headers
-    Authorization : {access_token}
+    Authorization : [access_token]
 
     + Body
       {
@@ -154,7 +154,7 @@ Transfer of funds from the purse to the purse
      }
     }
 
-## transaction recent [/transaction/recents.json?&limit=2& {purse} or {easypay_entity_id} or {webservice_entity_id}]
+## transaction recent [/transaction/recents.json?&limit=2& [purse] or [easypay_entity_id] or [webservice_entity_id]]
 
 Show transaction recent
 
@@ -163,7 +163,7 @@ Show transaction recent
 + Request (application/json)
 
     + Headers
-    Authorization : {access_token}
+    Authorization : [access_token]
 
 + Response 400 (application/json)
 
@@ -288,7 +288,7 @@ Show transaction recent
        }
     }
 
-## transaction info [/transaction/{transaction_id}.json]
+## transaction info [/transaction/[transaction_id].json]
 
 Show transaction info
 
@@ -297,7 +297,7 @@ Show transaction info
 + Request (application/json)
 
     + Headers
-    Authorization : {access_token}
+    Authorization : [access_token]
 
 + Response 400 (application/json)
 
@@ -428,7 +428,7 @@ AddFund for purse
 + Request (application/json)
 
     + Headers
-    Authorization : {access_token}
+    Authorization : [access_token]
 
     + Body
       {

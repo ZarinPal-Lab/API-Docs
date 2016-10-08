@@ -10,7 +10,7 @@ Add one user's purse
 + Request (application/json)
 
     + Headers
-    Authorization : {access_token}
+    Authorization : [access_token]
 
     + Body
     {
@@ -74,7 +74,7 @@ List purse current user
 + Request (application/json)
 
     + Headers
-    Authorization : {access_token}
+    Authorization : [access_token]
 
 + Response 400 (application/json)
 
@@ -139,7 +139,7 @@ get user's purse balance
 + Request (application/json)
 
     + Headers
-    Authorization : {access_token}
+    Authorization : [access_token]
 
 + Response 400 (application/json)
 
@@ -185,7 +185,7 @@ get user's purse balance
       }
    }
 
-## purse info [/purse/info/{:zp.0.0} or {email} or {mobile}.json]
+## purse info [/purse/info/[:zp.0.0] or [email] or [mobile].json]
 
 Show info purse current user
 
@@ -194,7 +194,7 @@ Show info purse current user
 + Request (application/json)
 
     + Headers
-    Authorization : {access_token}
+    Authorization : [access_token]
 
 + Response 400 (application/json)
 
@@ -261,7 +261,7 @@ Show info purse current user
   }
 
 
-## edit purse [/purse/edit/{purse_number}.json]
+## edit purse [/purse/edit/[purse_number].json]
 
 Edit name purse
 
@@ -270,7 +270,7 @@ Edit name purse
 + Request (application/json)
 
     + Headers
-    Authorization : {access_token}
+    Authorization : [access_token]
 
     +Body
       {

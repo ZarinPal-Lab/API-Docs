@@ -10,7 +10,7 @@ Get list of current users Easypays
 + Request (application/json)
 
     + Headers
-    Authorization : {access_token}
+    Authorization : [access_token]
 
 + Response 200 (application/json)
 
@@ -120,7 +120,7 @@ Get list of current users Easypays
       }
     }
 
-## show easypay [/show/{easypay_entity_id}.json]
+## show easypay [/show/[easypay_entity_id].json]
 
 Show information easypay
 
@@ -129,7 +129,7 @@ Show information easypay
 + Request (application/json)
 
     + Headers
-    Authorization : {access_token}
+    Authorization : [access_token]
 
 + Response 400 (application/json)
 
@@ -255,7 +255,7 @@ Create user's easypay
 + Request (application/json)
 
     + Headers
-    Authorization : {access_token}
+    Authorization : [access_token]
 
     + Body
     {
@@ -341,7 +341,7 @@ Create user's easypay
         }
     }
 
-## easypay edit [/easypay/edit/{easypay_entity_id}.json]
+## easypay edit [/easypay/edit/[easypay_entity_id].json]
 
 Edit user's easypay
 
@@ -350,7 +350,7 @@ Edit user's easypay
 + Request (application/json)
 
     + Headers
-    Authorization : {access_token}
+    Authorization : [access_token]
 
     + Body
     {
@@ -457,7 +457,7 @@ Edit user's easypay
         }
     }
 
-## delete easypay [/delete/{easypay_entity_id}.json]
+## delete easypay [/delete/[easypay_entity_id].json]
 
 delete this easypay
 
