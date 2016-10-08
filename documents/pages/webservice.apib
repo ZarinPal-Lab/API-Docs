@@ -2,7 +2,7 @@
 
 # Group Webservices
 
-## list webservices [/webservice/index.json]
+## list webservices [/webservice.json]
 
 Get list of current users Webservice
 
@@ -102,7 +102,7 @@ Get list of current users Webservice
     }
   }
 
-## show webservice [/webservice/show/[webservice_entity_id].json]
+## show webservice [/webservice/[webservice_entity_id].json]
 
 Get show information for one webservice
 
@@ -197,7 +197,7 @@ Get show information for one webservice
       }
   }
 
-## post request webservice [/webservice/request.json]
+## post request webservice [/webservice.json]
 
 Request for new webservice
 
@@ -288,11 +288,11 @@ Request for new webservice
         }
   }
 
-## post edit webservice [/webservice/edit.json]
+## edit webservice [/webservice/[webservice_entity_id].json]
 
 Edit this webservice
 
-### Edit  Webservice [POST]
+### Edit  Webservice [PUT]
 
 + Request (application/json)
 
@@ -301,7 +301,6 @@ Edit this webservice
 
     + Body
       {
-        "webservice" : "e45d421e-3dd8-11e6-9399-0800279114ca",
         "purse" : 2,
         "webservice_category_id" : 12,
         "site_ip" : 1.1.1.1,
@@ -548,7 +547,7 @@ Request new USSD
         }
   }
 
-## list WebserviceCategory [/webservice/webserviceCategory.json]
+## list WebserviceCategory [/webservice/category.json]
 
 Get list of WebserviceCategory
 
@@ -599,7 +598,7 @@ Get list of WebserviceCategory
     }
   }
 
-## delete webservice [/delete/[webservic_entity_id].json]
+## delete webservice [/webservice/[webservic_entity_id].json]
 
 delete this webservice
 

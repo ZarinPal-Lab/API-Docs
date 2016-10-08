@@ -1,7 +1,7 @@
 
 # Group Transactions
 
-## transaction transfer [/transaction/transfer.json]
+## transaction transfer [/transaction/withdraw.json]
 
 Transfer of funds from the purse to the Card
 
@@ -79,7 +79,7 @@ Transfer of funds from the purse to the Card
         }
     }
 
-## transaction purse to purse transfer [/transaction/purseToPurseTransfer.json]
+## transaction purse to purse transfer [/transaction/p2pTransfer.json]
 
 Transfer of funds from the purse to the purse
 
@@ -154,7 +154,7 @@ Transfer of funds from the purse to the purse
      }
     }
 
-## transaction recent [/transaction/recents.json?&limit=2& [purse] or [easypay_entity_id] or [webservice_entity_id]]
+## transaction recent [/transaction.json?&limit=2& [purse] or [easypay_entity_id] or [webservice_entity_id]]
 
 Show transaction recent
 
@@ -288,7 +288,7 @@ Show transaction recent
        }
     }
 
-## transaction info [/transaction/[transaction_id].json]
+## transaction info [/transaction/[transaction_public_id].json]
 
 Show transaction info
 
@@ -419,7 +419,7 @@ Show transaction info
       }
     }
 
-## Add Found [/transaction/addFund.json]
+## Add Found [/checkout/addFund.json]
 
 AddFund for purse
 
