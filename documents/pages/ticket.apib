@@ -264,144 +264,6 @@ List all department
       }
    }
 
-  ## ticket show [/ticket/[ticket_entity_id].json]
-
-  List replies of ticket
-
-  ### List Replies For one Ticket [GET]
-
-  + Request (application/json)
-
-      + Headers
-      Authorization : [access_token]
-
-  + Response 400 (application/json)
-
-      + Body
-        {
-            "meta": {
-              "code": 400,
-              "error_type": "TicketNotFound",
-              "error_message": "Ticket Not Found."
-            }
-        }
-
-  + Response 200 (application/json)
-
-    + Body
-      {
-      "data": {
-          "title": "درخواست وب‌سرویس برای وب‌سایت test",
-          "ticket_department_id": 1,
-          "public_id": 139411070120,
-          "priority": "normal",
-          "status": "close",
-          "read_status": {
-            "first": true,
-            "second": null
-          },
-          "created_at": "2016-01-27 15:43:40",
-          "updated_at": "2016-09-24 13:26:31",
-          "replies": [
-              {
-                "content": "tes",
-                "ip": "1.1.1.1",
-                "attachment": null,
-                "created_at": "2016-01-27 15:43:40",
-                "user_info": {
-                  "name": "مسعود لطفي",
-                  "public_id": 111242,
-                  "email_hash": "9d8001efb3c5fcd82a73cc2e70a5"
-                }
-              }
-            ]
-          }
-      }
-
-    + Schema
-    {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "title": {
-            "type": "string"
-          },
-          "ticket_department_id": {
-            "type": "integer",
-            "description": "ticket's department"
-          },
-          "public_id": {
-            "type": "integer"
-          },
-          "priority": {
-            "type": "string",
-            "description": "ticket's priority"
-          },
-          "status": {
-            "type": "string",
-            "description": "ticket's status"
-          },
-          "read_status": {
-            "type": "object",
-            "properties": {
-              "first": {
-                  "type" : "boolean",
-                  "description" : "if set true it's mean user read ticket else unread"
-              },
-              "second": {
-                  "type" : "boolean",
-                  "description" : "if set true it's mean secound user read ticket else unread"
-              },
-            },
-            "created_at" : {
-                "type" : "string"
-            },
-            "updated_at" : {
-                "type" : "string"
-            }
-          },
-          "replies" : {
-              "type" : "array",
-              "items" : {
-                  "type" : "object",
-                  "properties" : {
-                      "content": {
-                        "type": "string"
-                      },
-                      "ip" : {
-                        "type" : "string"
-                      },
-                      "attachment" : {
-                        "type" : "string"
-                      },
-                      "created_at" : {
-                        "type" : "string"
-                      },
-                      "user_info" : {
-                        "type" : "object",
-                        "properties" : {
-                            "name": {
-                              "type" : "string",
-                              "description" : "name for user's reply"
-                            },
-                            "public_id" : {
-                              "type" : "string",
-                              "description" : "public_id for user's reply"
-                            },
-                            "email_hash" : {
-                              "type" : "string",
-                              "description" : "email hash for user's reply"
-                            }
-                        }
-                      }
-                  }
-              }
-          }
-        }
-      }
-    }
-
 ## create ticket [/ticket.json]
 
 Create new Ticket
@@ -679,5 +541,46 @@ Find ticket guest
             }
           }
         }
+      }
+    }
+
+## reply ticket guest [/guest/[hash_email]/[hash_ticket].json]
+
+Reply new Ticket
+
+### Reply Ticket Guest [POST]
+
++ Request (application/json)
+
+    + Headers
+    Authorization : [access_token]
+
+    +Body
+      {
+        "content" : "content of ticket",
+        "attachment" : "null"
+      }
+
+    + Schema
+      {
+        "type" : "object",
+        "properties" : {
+          "content" : {
+            "type" : "string",
+          },
+          "attachment" : {
+            "type" : "strong",
+            "description" : "upload file."
+          }
+        }
+      }
+
++ Response 200 (application/json)
+
+  + Body
+    {
+      "meta": {
+          "code": 200,
+          "message": "reply ticket send successfully"
       }
     }
