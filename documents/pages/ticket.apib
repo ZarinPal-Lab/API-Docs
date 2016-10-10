@@ -125,48 +125,6 @@ List ticket of user
     }
   }
 
-## list department [/ticket/getDepartment.json]
-
-List all department
-
-### List Ticket's Department [GET]
-
-+ Request (application/json)
-
-    + Headers
-    Authorization : [access_token]
-
-+ Response 200 (application/json)
-
-  + Body
-    {
-       "data": [
-         {
-             "entity_id": 2,
-            "name": "درخواست تاييد اطلاعات"
-         },
-       ],
-       "meta": {
-         "code": 200,
-       },
-    }
-
-   + Schema
-   {
-      "type" : "array",
-      "items" : {
-         "type" : "object",
-         "properties" : {
-             "entity_id" : {
-               "type" : "integer"
-             },
-             "name" : {
-               "type" : "string"
-             }
-         }
-      }
-   }
-
 ## ticket show [/ticket/[ticket_entity_id].json]
 
 List replies of ticket
@@ -264,47 +222,47 @@ List replies of ticket
       }
     }
 
-  ## list department [/ticket/getDepartment.json]
+## list department [/ticket/getDepartment.json]
 
-  List all department
+List all department
 
-  ### List Ticket's Department [GET]
+### List Ticket's Department [GET]
 
-  + Request (application/json)
++ Request (application/json)
 
-      + Headers
-      Authorization : [access_token]
+    + Headers
+    Authorization : [access_token]
 
-  + Response 200 (application/json)
++ Response 200 (application/json)
 
-    + Body
-      {
-         "data": [
-           {
-               "entity_id": 2,
-              "name": "درخواست تاييد اطلاعات"
-           },
-         ],
-         "meta": {
-           "code": 200,
+  + Body
+    {
+       "data": [
+         {
+             "entity_id": 2,
+            "name": "درخواست تاييد اطلاعات"
          },
-      }
+       ],
+       "meta": {
+         "code": 200,
+       },
+    }
 
-     + Schema
-     {
-        "type" : "array",
-        "items" : {
-           "type" : "object",
-           "properties" : {
-               "entity_id" : {
-                 "type" : "integer"
-               },
-               "name" : {
-                 "type" : "string"
-               }
-           }
-        }
-     }
+   + Schema
+   {
+      "type" : "array",
+      "items" : {
+         "type" : "object",
+         "properties" : {
+             "entity_id" : {
+               "type" : "integer"
+             },
+             "name" : {
+               "type" : "string"
+             }
+         }
+      }
+   }
 
   ## ticket show [/ticket/[ticket_entity_id].json]
 
@@ -553,16 +511,16 @@ Close Ticket
         }
       }
 
-  + Response 400 (application/json)
++ Response 400 (application/json)
 
-      + Body
-        {
-            "meta": {
-              "code": 400,
-              "error_type": "TicketNotFound",
-              "error_message": "Ticket Not Found."
-            }
-        }
+    + Body
+      {
+          "meta": {
+            "code": 400,
+            "error_type": "TicketNotFound",
+            "error_message": "Ticket Not Found."
+          }
+      }
 
 + Response 200 (application/json)
 
@@ -571,5 +529,155 @@ Close Ticket
       "meta": {
           "code": 200,
           "message": "ticket close successfully"
+      }
+    }
+
+## create guest ticket [/guest.json]
+
+Create new Ticket for Guest
+
+### Create Guest Ticket [POST]
+
++ Request (application/json)
+
+  + Body
+    {
+    	"title" : "api test8",
+    	"content" : "content api8",
+    	"email" : "lion.masoud@yahoo.com",
+    	"name"  : "masoud lotfi",
+    	"phone" : "09351309626",
+    	"ticket_department_id" : 3,
+    	"priority" : 2
+    }
+
+  + Schema
+    {
+      "type" : "object",
+      "properties" : {
+        "title" : {
+          "type" : "string",
+        },
+        "content" : {
+          "type" : "string",
+        },
+        "email" : {
+          "type" : "string",
+        },
+        "name" : {
+          "type" : "string",
+        },
+        "phone" : {
+          "type" : "string",
+        },
+        "ticket_department_id" : {
+          "type" : "integer",
+        },
+        "priority" : {
+          "type" : "integer"
+        }
+  }
+
++ Response 200 (application/json)
+
+  + Body
+    {
+      "meta": {
+          "code": 200,
+          "message": "ticket create successfully"
+      }
+    }
+
+## find ticket guest [/guest/[hash_email]/[hash_ticket].json]
+
+Find ticket guest
+
+### Find Guest's Ticket [GET]
+
++ Request (application/json)
+
++ Response 400 (application/json)
+
+    + Body
+      {
+          "meta": {
+            "code": 400,
+            "error_type": "TicketNotFound",
+            "error_message": "Ticket Not Found."
+          }
+      }
+
++ Response 200 (application/json)
+
+  + Body
+    {
+    "data": {
+        "title": "درخواست وب‌سرویس برای وب‌سایت test",
+        "ticket_department_id": 1,
+        "public_id": 139411070120,
+        "priority": "normal",
+        "status": "close",
+        "read_status": {
+          "first": true,
+          "second": null
+        },
+        "created_at": "2016-01-27 15:43:40",
+        "updated_at": "2016-09-24 13:26:31",
+        "replies": [
+            {
+              "content": "tes",
+              "ip": "1.1.1.1",
+              "attachment": null,
+              "created_at": "2016-01-27 15:43:40",
+              "user_info": {
+                "name": "مسعود لطفي",
+                "phone": 09312345678,
+                "email_hash": "9d8001efb3c5fcd82a73cc2e70a5"
+              }
+            }
+          ]
+        }
+    }
+
+    + Schema
+    {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "ticket_department_id": {
+            "type": "integer",
+            "description": "ticket's department"
+          },
+          "public_id": {
+            "type": "integer"
+          },
+          "status": {
+            "type": "string",
+            "description": "ticket's status"
+          },
+          "read_status": {
+            "type": "object",
+            "properties": {
+              "first": {
+                  "type" : "boolean",
+                  "description" : "if set true it's mean user read ticket else unread"
+              },
+              "second": {
+                  "type" : "boolean",
+                  "description" : "if set true it's mean secound user read ticket else unread"
+              },
+            },
+            "created_at" : {
+                "type" : "string"
+            },
+            "updated_at" : {
+                "type" : "string"
+            }
+          }
+        }
       }
     }
