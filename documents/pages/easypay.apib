@@ -1,16 +1,16 @@
 
 # Group Easypays
 
-## list easypay [/easypay.json]
+## list easypays [/easypay.json]
 
 Get list of current users Easypays
 
-### List Easypay [GET]
+### List Easypays [GET]
 
 + Request (application/json)
 
     + Headers
-    Authorization : [access_token]
+    Authorization: Bearer [access_token]
 
 + Response 200 (application/json)
 
@@ -129,7 +129,7 @@ Show information easypay
 + Request (application/json)
 
     + Headers
-    Authorization : [access_token]
+    Authorization: Bearer [access_token]
 
 + Response 400 (application/json)
 
@@ -246,7 +246,7 @@ Show information easypay
       }
     }
 
-## easypay create [/easypay.json]
+## create easypay [/easypay.json]
 
 Create user's easypay
 
@@ -255,7 +255,7 @@ Create user's easypay
 + Request (application/json)
 
     + Headers
-    Authorization : [access_token]
+    Authorization: Bearer [access_token]
 
     + Body
     {
@@ -341,7 +341,7 @@ Create user's easypay
         }
     }
 
-## easypay edit [/easypay/[easypay_entity_id].json]
+## edit easypay [/easypay/[easypay_entity_id].json]
 
 Edit user's easypay
 
@@ -350,7 +350,7 @@ Edit user's easypay
 + Request (application/json)
 
     + Headers
-    Authorization : [access_token]
+    Authorization: Bearer [access_token]
 
     + Body
     {
@@ -466,8 +466,8 @@ delete this easypay
 + Request (application/json)
 
     + Headers
-    Authorization: {access_token}
-
+    Authorization: Bearer [access_token]
+    
 + Response 400 (application/json)
 
   + Body

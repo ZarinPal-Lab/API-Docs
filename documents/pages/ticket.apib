@@ -1,16 +1,16 @@
 
 # Group Tickets
 
-## tickets getSummary [/ticket/summary.json]
+## summery tickets [/ticket/summary.json]
 
 List summary user's tickets
 
-### GetSummary Tickets [GET]
+### Summary Tickets [GET]
 
 + Request (application/json)
 
     + Headers
-    Authorization : [access_token]
+    Authorization: Bearer [access_token]
 
 + Response 200 (application/json)
 
@@ -44,12 +44,12 @@ List summary user's tickets
 
 List ticket of user
 
-### List All Ticket [GET]
+### List Tickets [GET]
 
 + Request (application/json)
 
     + Headers
-    Authorization : [access_token]
+    Authorization: Bearer [access_token]
 
 + Response 200 (application/json)
 
@@ -125,16 +125,16 @@ List ticket of user
     }
   }
 
-## ticket show [/ticket/[ticket_entity_id].json]
+## show ticket [/ticket/[ticket_entity_id].json]
 
 List replies of ticket
 
-### List Replies For one Ticket [GET]
+### show Ticket [GET]
 
 + Request (application/json)
 
     + Headers
-    Authorization : [access_token]
+    Authorization: Bearer [access_token]
 
 + Response 400 (application/json)
 
@@ -222,16 +222,16 @@ List replies of ticket
       }
     }
 
-## list department [/ticket/getDepartment.json]
+## list department [/ticket/department.json]
 
 List all department
 
-### List Ticket's Department [GET]
+### List Department [GET]
 
 + Request (application/json)
 
     + Headers
-    Authorization : [access_token]
+    Authorization: Bearer [access_token]
 
 + Response 200 (application/json)
 
@@ -264,16 +264,16 @@ List all department
       }
    }
 
-## create ticket [/ticket.json]
+## new ticket [/ticket.json]
 
 Create new Ticket
 
-### Create Ticket [POST]
+### New Ticket [POST]
 
 + Request (application/json)
 
   + Headers
-  Authorization : [access_token]
+  Authorization: Bearer [access_token]
 
   + Body
     {
@@ -320,7 +320,7 @@ Reply new Ticket
 + Request (application/json)
 
     + Headers
-    Authorization : [access_token]
+    Authorization: Bearer [access_token]
 
     +Body
       {
@@ -361,7 +361,7 @@ Close Ticket
 + Request (application/json)
 
     + Headers
-    Authorization : [access_token]
+    Authorization: Bearer [access_token]
 
     + Schema
       {
@@ -394,7 +394,7 @@ Close Ticket
       }
     }
 
-## create guest ticket [/guest.json]
+## create guest ticket [ticket/guest.json]
 
 Create new Ticket for Guest
 
@@ -450,11 +450,11 @@ Create new Ticket for Guest
       }
     }
 
-## find ticket guest [/guest/[hash_email]/[hash_ticket].json]
+## show ticket guest [ticket/guest/[hash_email]/[hash_ticket].json]
 
 Find ticket guest
 
-### Find Guest's Ticket [GET]
+### Show Ticket Guest [GET]
 
 + Request (application/json)
 
@@ -544,7 +544,7 @@ Find ticket guest
       }
     }
 
-## reply ticket guest [/guest/[hash_email]/[hash_ticket].json]
+## reply ticket guest [ticket/guest/[hash_email]/[hash_ticket].json]
 
 Reply new Ticket
 
@@ -553,7 +553,7 @@ Reply new Ticket
 + Request (application/json)
 
     + Headers
-    Authorization : [access_token]
+    Authorization: Bearer [access_token]
 
     +Body
       {

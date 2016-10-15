@@ -1,17 +1,15 @@
-
-
 # Group Webservices
 
 ## list webservices [/webservice.json]
 
 Get list of current users Webservice
 
-### List All Webservices [GET]
+### List Webservices [GET]
 
 + Request (application/json)
 
     + Headers
-    Authorization: [access_token]
+    Authorization: Bearer [access_token]
 
 + Response 400 (application/json)
 
@@ -102,111 +100,16 @@ Get list of current users Webservice
     }
   }
 
-## show webservice [/webservice/[webservice_entity_id].json]
-
-Get show information for one webservice
-
-### List All Webservices [GET]
-
-+ Request (application/json)
-
-    + Headers
-    Authorization: [access_token]
-
-+ Response 400 (application/json)
-
-  + Body
-    {
-        "meta": {
-          "code": 400,
-          "error_type": "WebserviceNotFound",
-          "error_message": "Webservice Not Found."
-        }
-    }
-
-+ Response 200 (application/json)
-
-  + Body
-  {
-      "data":
-        {
-          "entity_id": "4a0b7ff2-67ac-11e6-b8c295eb8fc",
-          "status": true,
-          "purse": 1,
-          "category_id": 10,
-          "tel": "09122182569",
-          "domain": "htpp://www.test.com",
-          "ip": null,
-          "name": "test",
-          "description": "description for test",
-          "ussd_id": null,
-          "zaringate_status": "NotActivated",
-          "logo": "//logoland.zarinpal.com/6e76cc60647c3d288631bf3ed444dd2b/125x125.png"
-        },
-        "meta": {
-          "code": 200
-        }
-  }
-
-  + Schema
-  {
-      "type" : "object",
-      "properties" : {
-          "entity_id" : {
-              "type" : "string"
-          },
-          "status" : {
-              "type" : "boolean",
-              "description" : "if set status true this webservice is active else it's not Active",
-          },
-          "purse" : {
-              "type" : "integer"
-          },
-          "category_id" : {
-              "type" : "integer",
-              "description" : "webservice's category"
-          },
-          "tel" : {
-              "type" : "string"
-          },
-          "domain" : {
-              "type" : "string"
-          },
-          "ip" : {
-              "type" : "string",
-              "description" : "if set ip is null ,this webservice not limited else it's on limited",
-          },
-          "name" : {
-              "type" : "string"
-          },
-          "description" : {
-              "type" : "string"
-          },
-          "ussd_id" : {
-              "type" : "string",
-              "description" : "code ussd"
-          },
-          "zaringate_status" : {
-              "type" : "string",
-              "description" : "check request for zaringate"
-          },
-          "logo" : {
-              "type" : "string",
-              "description" : "This is url for show logo"
-          }
-      }
-  }
-
-## post request webservice [/webservice.json]
+## new webservice [/webservice.json]
 
 Request for new webservice
 
-### Request New Webservice [POST]
+### New Webservice [POST]
 
 + Request (application/json)
 
     + Headers
-    Authorization: [access_token]
+    Authorization: Bearer [access_token]
 
     + Body
       {
@@ -297,7 +200,7 @@ Edit this webservice
 + Request (application/json)
 
     + Headers
-    Authorization: [access_token]
+    Authorization: Bearer [access_token]
 
     + Body
       {
@@ -359,7 +262,7 @@ Get price for request zarin gate
 + Request (application/json)
 
     + Headers
-    Authorization: [access_token]
+    Authorization: Bearer [access_token]
 
 + Response 200 (application/json)
 
@@ -403,7 +306,7 @@ Get price for ussd
 + Request (application/json)
 
     + Headers
-    Authorization: [access_token]
+    Authorization: Bearer [access_token]
 
 + Response 200 (application/json)
 
@@ -440,14 +343,14 @@ Get price for ussd
 
 ## post request zaringate [/webservice/requestZaringate.json]
 
-Request new Zaringate
+new Zaringate
 
-### Request New Zaringate [POST]
+### New Zaringate [POST]
 
 + Request (application/json)
 
     + Headers
-    Authorization: [access_token]
+    Authorization: Bearer [access_token]
 
     + Body
       {
@@ -499,7 +402,7 @@ Request new USSD
 + Request (application/json)
 
     + Headers
-    Authorization: [access_token]
+    Authorization: Bearer [access_token]
 
     + Body
       {
@@ -551,12 +454,12 @@ Request new USSD
 
 Get list of WebserviceCategory
 
-### List All WebserviceCategory [GET]
+### List WebserviceCategory [GET]
 
 + Request (application/json)
 
     + Headers
-    Authorization: [access_token]
+    Authorization: Bearer [access_token]
 
 + Response 200 (application/json)
 
@@ -602,12 +505,12 @@ Get list of WebserviceCategory
 
 delete this webservice
 
-### DELETE Webservice [DELETE]
+### Delete Webservice [DELETE]
 
 + Request (application/json)
 
     + Headers
-    Authorization: [access_token]
+    Authorization: Bearer [access_token]
 
 + Response 400 (application/json)
 
