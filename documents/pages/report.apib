@@ -1,0 +1,164 @@
+
+# Group Reports
+
+## show report for one purse [/report/purseTransactions.json]
+
+show transactions's purse
+
+### Report Purse [POST]
+
++ Request (application/json)
+
+    + Headers
+    Authorization: Bearer [access_token]
+
+    + Body
+        {
+        "from_date" : "2016-06-22",
+        "to_date" : "2016-06-23",
+        "purse_number" : "1"
+        }
+
+    + Schema
+      {
+        "type": "object",
+        "properties": {
+          "from_date": {
+            "type": "string",
+            "description" : "start date for reporting"
+          },
+          "to_date": {
+            "type": "string",
+            "description" : "end date for reporting"
+          },
+          "purse_number": {
+            "type": "string",
+            "description" : "number purse"
+          }
+        }
+     }
+
++ Response 400 (application/json)
+
+    + Body
+      {
+          "meta": {
+          "code": 400,
+              "error_type": "NotFound",
+              "error_message": "purse not found."
+          }
+      }
++ Response 400 (application/json)
+    + Body
+      {
+          "meta": {
+              "code": 400,
+              "error_type": "InvalidParams",
+              "error_message": "The input parameters are not sufficient."
+          }
+      }
+
++ Response 200 (application/json)
+
+    + Body
+    {
+    "meta": {
+                 "code": 200
+             },
+    "data": [
+            {
+                "date": "2016-06-22",
+                "income_count": 1,
+                "income_amount": 200,
+                "outgo_count": 2,
+                "outgo_amount": 100
+            },
+            {
+                "date": "2016-06-23",
+                "income_count": 1,
+                "income_amount": 200,
+                "outgo_count": 2,
+                "outgo_amount": 100
+            },
+           ]
+         }
+    }
+
+## show report for one webservice [/report/webserviceTransactions.json]
+
+show transactions's webservice
+
+### Report Webservice [POST]
+
++ Request (application/json)
+
+    + Headers
+    Authorization: Bearer [access_token]
+
+    + Body
+        {
+        "from_date" : "2016-06-22",
+        "to_date" : "2016-06-23",
+        "webservice_id" : "4a0b7ff2-67ac-11e6-b8c295eb8fc"
+        }
+
+    + Schema
+      {
+        "type": "object",
+        "properties": {
+          "from_date": {
+            "type": "string",
+            "description" : "start date for reporting"
+          },
+          "to_date": {
+            "type": "string",
+            "description" : "end date for reporting"
+          },
+          "webservice_id": {
+            "type": "string",
+            "description" : "entity id webservice"
+          }
+        }
+     }
+
++ Response 400 (application/json)
+
+    + Body
+      {
+          "meta": {
+          "code": 400,
+              "error_type": "NotFound",
+              "error_message": "webservice not found."
+          }
+      }
++ Response 400 (application/json)
+    + Body
+      {
+          "meta": {
+              "code": 400,
+              "error_type": "InvalidParams",
+              "error_message": "The input parameters are not sufficient."
+          }
+      }
+
++ Response 200 (application/json)
+
+    + Body
+    {
+    "meta": {
+                 "code": 200
+             },
+    "data": [
+            {
+                "date": "2016-06-22",
+                "income_count": 1,
+                "income_amount": 200
+            },
+            {
+                "date": "2016-06-23",
+                "income_count": 1,
+                "income_amount": 200
+            },
+           ]
+         }
+    }
