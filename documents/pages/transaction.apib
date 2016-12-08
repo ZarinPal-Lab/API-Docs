@@ -502,3 +502,74 @@ AddFund for purse
           "code": 200
         }
     }
+
+## session info [/transaction/sessions/[webservice_enitity_id].json?fromDate=2012-1-1&toDate=2012-1-2&authority=123454321&mobile=09351309626]
+
+Show sessions
+
+### Transaction session [GET]
+
++ Request (application/json)
+
+    + Headers
+    Authorization: Bearer [access_token]
+
++ Response 400 (application/json)
+
+  + Body
+    {
+        "meta": {
+          "code": 400,
+          "error_type": "WebserviceNotFound",
+          "error_message": "Webservice Not Found."
+        }
+    }
+
++ Response 200 (application/json)
+
+    + Body
+    {
+    "data": [
+        {
+           "authority": 5904,
+           "created_at": "2016-08-02 13:22:59",
+           "amount": 100,
+           "mobile": "09351309626",
+           "email": "test@example.com",
+           "transaction": null
+       },
+    }
+
+    + Schema
+    {
+      "type" : "array",
+      "items" : {
+          "type" : "object",
+          "properties" : {
+              "authority" : {
+                "type" : "integer"
+              },
+
+              "created_at" : {
+                "type" : "string"
+              },
+              "amount" : {
+                "type" : "integer"
+              },
+              "mobile" : {
+                "type" : "string"
+              },
+              "email" : {
+                "type" : "string"
+              },
+              "transaction" : {
+                "type" : "object",
+                "properties" : {
+                  "public_id": {
+                    "type" : "string",
+                  }
+                }
+              }
+          }
+       }
+    }
