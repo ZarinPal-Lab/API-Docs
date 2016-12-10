@@ -308,3 +308,87 @@ Edit name purse
           "message": "Update name purse successfully."
       }
     }
+
+## add Found [/purse.json]
+
+Add found to purse
+
+### Add Found [POST]
+
++ Request (application/json)
+
+    + Headers
+    Authorization: Bearer [access_token]
+
+    + Body
+    {
+      'amount' : 1000,
+      'purse' => 2,
+      'card_id' => 'aaaaabbbbbbcccccfdddddd',
+      'redirect_url' => 'zarinpal.com/panel'
+    }
+
+    + Schema
+    {
+        "type": "object",
+        "properties": {
+            "amount": {
+              "type": "integer"
+              },
+            "purse": {
+              "type": "string"
+              },
+            "card_id": {
+              "type": "string",
+              "description": "entity id card."
+              },
+            "redirect_url": {
+              "type": "string"
+              },
+      }
+    }
+
++ Response 400 (application/json)
+
+    + Body
+      {
+          "meta": {
+          "code": 400,
+          "error_type": "InvalidPurse",
+          "error_message": "The purse is invalid."
+          }
+      }
+
++ Response 400 (application/json)
+
+    + Body
+      {
+          "meta": {
+          "code": 400,
+          "error_type": "InvalidCard",
+          "error_message": "The card is invalid."
+          }
+      }
+
++ Response 400 (application/json)
+
+    + Body
+      {
+          "meta": {
+          "code": 400,
+          "error_type": "AmountTooSmall",
+          "error_message": "The minimum transfer amount is 100 tomans'"
+          }
+      }
+
++ Response 200 (application/json)
+
+    + Body
+      {
+        "meta": {
+            "code": 200,
+            "data" : {
+                "authority" : 123
+            }
+        }
+      }
