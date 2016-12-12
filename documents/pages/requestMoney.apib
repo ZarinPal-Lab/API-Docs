@@ -1,0 +1,149 @@
+
+# Group RequestMoney
+
+## request money [/requestMoney.json]
+
+Request money from users
+
+### RequestMoney [POST]
+
++ Request (application/json)
+
+    + Headers
+    Authorization: Bearer [access_token]
+
++ Response 200 (application/json)
+    + Body
+    {
+      "debtor" : [
+          	{
+          		"zp" : 111242,
+          		"amount" : 100
+          	},
+          	{
+          		"zp" : 2,
+          		"amount" : 200
+          	}
+      	],
+      "purse_number" : 1,
+      "description" : "babate pole shame dishab."
+    }
+
+    + Schema
+      {
+        "type" : "array",
+          "items" : {
+          "type" : "object",
+          "properties" : {
+            "zp" : {
+                "type" : "integer",
+                "description" : "i want money form user"
+            },
+            "amount" : {
+                "type" : "integer"
+            }
+          }
+        },
+        "properties" : {
+          "purse_number" : {
+                "type" : "integer",
+                "description" : "my purse number",
+            }
+        },
+        "properties" : {
+          "description" : {
+                "type" : "string",
+            }
+        },
+      }
+
++ Response 400 (application/json)
+
+  + Body
+    {
+        "meta": {
+        "code": 400,
+        "error_type": "PurseNotFound",
+        "error_message": "Purse Not Found."
+        }
+    }
+
++ Response 200 (application/json)
+
+    + Body
+    {
+      "meta": {
+        "code": 200,
+        "message": "send request money successfully"
+        }
+    }
+
+## list demand [requestMoney/listDemand.json]
+
+### List Demand [GET]
+
++ Request (application/json)
+
+    + Headers
+    Authorization: Bearer [access_token]
+
++ Response 200 (application/json)
+
+    + Body
+    {
+    "data": [
+    {
+       "entity_id": "584e76e71731d100092df863",
+       "debtor": [
+         {
+           "zp": 1,
+           "amount": 20000000,
+           "status": 0
+         },
+         {
+           "zp": 2,
+           "amount": 20000000,
+           "status": 0
+         }
+       ],
+       "purse_number": 1,
+       "description": "baiad behem pol bedin :)"
+      },
+    }
+
+    + Schema
+    {
+      "type" : "array",
+      "items" : {
+          "type" : "object",
+          "properties" : {
+              "entity_id" : {
+                "entity_id" : "string",
+                "description" : "entity id for this request money"
+              },
+              "transaction" : {
+                "type" : "object",
+                "properties" : {
+                  "zp" : {
+                      "type" : "integer",
+                      "description" : "i want money form user"
+                  },
+                  "amount" : {
+                      "type" : "integer"
+                  }
+              }
+            },
+            "properties" : {
+              "purse_number" : {
+                    "type" : "integer",
+                    "description" : "my purse number",
+                }
+            },
+            "properties" : {
+              "description" : {
+                    "type" : "string",
+                }
+            }
+          }
+       }
+     }
