@@ -29,18 +29,21 @@
 
     + Schema
       {
-        "type" : "array",
-          "items" : {
-          "type" : "object",
-          "properties" : {
-            "zp" : {
-                "type" : "integer",
-                "description" : "i want money form user"
-            },
-            "amount" : {
-                "type" : "integer"
+      "properties" : {
+        "debtor" : {
+          "type" : "array",
+            "items" : {
+            "type" : "object",
+            "properties" : {
+              "zp" : {
+                  "type" : "integer",
+                  "description" : "i want money form user"
+              },
+              "amount" : {
+                  "type" : "integer"
+              }
             }
-          }
+          },
         },
         "properties" : {
           "purse_number" : {
@@ -76,7 +79,7 @@
         }
     }
 
-## list demand [requestMoney/listDemand.json]
+## list demand [/requestMoney/listDemand.json]
 
 ### List Demand [GET]
 
@@ -96,12 +99,12 @@
          {
            "zp": 1,
            "amount": 20000000,
-           "status": 0
+           "status": 'در انتظار پرداخت'
          },
          {
            "zp": 2,
            "amount": 20000000,
-           "status": 0
+           "status": 'در انتظار پرداخت'
          }
        ],
        "purse_number": 1,
@@ -116,15 +119,139 @@
           "type" : "object",
           "properties" : {
               "entity_id" : {
-                "entity_id" : "string",
-                "description" : "entity id for this request money"
+                  "entity_id" : "string",
+                  "description" : "entity id for this request money"
               },
-              "transaction" : {
+              "debtor" : {
                 "type" : "object",
                 "properties" : {
                   "zp" : {
                       "type" : "integer",
                       "description" : "i want money form user"
+                  },
+                  "amount" : {
+                      "type" : "integer"
+                  }
+              }
+            },
+            "properties" : {
+              "purse_number" : {
+                    "type" : "integer",
+                    "description" : "my purse number",
+                }
+            },
+            "properties" : {
+              "description" : {
+                    "type" : "string",
+                }
+            }
+          }
+       }
+     }
+
+
+## List Debt [requestMoney/listDebt.json]
+
+### List Debt [GET]
+
++ Request (application/json)
+
+   + Headers
+   Authorization: Bearer [access_token]
+
++ Response 200 (application/json)
+
+   + Body
+   {
+   "data": [
+   {
+      "debtor": [
+        {
+          "to_user": 1,
+          "amount": 20000000,
+          "status": 'در انتظار پرداخت'
+        },
+      ],
+      "purse_number": 1,
+      "description": "bedehi..."
+     },
+   }
+
+   + Schema
+   {
+     "type" : "array",
+     "items" : {
+         "type" : "object",
+         "properties" : {
+             "debtor" : {
+               "type" : "object",
+               "properties" : {
+                 "to_user" : {
+                     "type" : "integer",
+                     "description" : "this user request money"
+                 },
+                 "amount" : {
+                     "type" : "integer"
+                 },
+                 "status" : {
+                     "type" : "string"
+                 },
+             }
+           },
+           "properties" : {
+             "purse_number" : {
+                   "type" : "integer",
+                   "description" : "my purse number",
+               }
+           },
+           "properties" : {
+             "description" : {
+                   "type" : "string",
+               }
+           }
+         }
+      }
+    }
+
+## Request Money between two user [/requestMoney.json?zp=[public_id_user]]
+
+### Request Money 2 user [GET]
+
++ Request (application/json)
+
+    + Headers
+    Authorization: Bearer [access_token]
+
++ Response 200 (application/json)
+
+    + Body
+    {
+    "data": [
+    {
+       "debtor": [
+         {
+           "zp": 1,
+           "amount": 20000000,
+           "status": 'در انتظار پرداخت'
+         }
+       ],
+       "purse_number": 1,
+       "description": "dadash in vase kharide cake."
+      },
+    }
+
+    + Schema
+    {
+      "type" : "array",
+      "items" : {
+          "type" : "object",
+          "properties" : {
+              "debtor" : {
+                "type" : "object",
+                "properties" : {
+                  "zp" : {
+                      "type" : "integer",
+                      "description" : "this user request money"
                   },
                   "amount" : {
                       "type" : "integer"
