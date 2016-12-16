@@ -1361,13 +1361,20 @@
 "<span class="hljs-attribute">entity_id</span>": <span class="hljs-value"><span class="hljs-string">"584e76e71731d100092df863"</span></span>,
 "<span class="hljs-attribute">debtor</span>": <span class="hljs-value">[
  {
-   "<span class="hljs-attribute">zp</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+   "<span class="hljs-attribute">user</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">zp</span>": <span class="hljs-value"><span class="hljs-number">1111</span></span>,
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"user zarinpal1"</span></span>,
+      "<span class="hljs-attribute">email_hash</span>": <span class="hljs-value"><span class="hljs-string">"bd3d7c5389b7a8ee03f164d1f4c"</span>
+    </span>}</span>,
    "<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-number">20000000</span></span>,
    "<span class="hljs-attribute">status</span>": <span class="hljs-value">'در انتظار پرداخت'
  </span>},
  {
-   "<span class="hljs-attribute">zp</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
-   "<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-number">20000000</span></span>,
+   "<span class="hljs-attribute">user</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">zp</span>": <span class="hljs-value"><span class="hljs-number">222</span></span>,
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"user zarinpal2"</span></span>,
+      "<span class="hljs-attribute">email_hash</span>": <span class="hljs-value"><span class="hljs-string">"bd3d7c53b7a8ee03f164d1f4c"</span>
+    </span>}</span>,           "<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-number">20000000</span></span>,
    "<span class="hljs-attribute">status</span>": <span class="hljs-value">'در انتظار پرداخت'
  </span>}
 ]</span>,
@@ -1387,10 +1394,21 @@
       "<span class="hljs-attribute">debtor</span>" : <span class="hljs-value">{
         "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
         "<span class="hljs-attribute">properties</span>" : <span class="hljs-value">{
-          "<span class="hljs-attribute">zp</span>" : <span class="hljs-value">{
-              "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"integer"</span></span>,
-              "<span class="hljs-attribute">description</span>" : <span class="hljs-value"><span class="hljs-string">"i want money form user"</span>
-          </span>}</span>,
+          "<span class="hljs-attribute">user</span>" : <span class="hljs-value">{
+            "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+              "<span class="hljs-attribute">properties</span>" : <span class="hljs-value">{
+                "<span class="hljs-attribute">zp</span>" : <span class="hljs-value">{
+                    "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"integer"</span>
+                </span>}</span>,
+                "<span class="hljs-attribute">name</span>" : <span class="hljs-value">{
+                    "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+                    "<span class="hljs-attribute">description</span>" : <span class="hljs-value"><span class="hljs-string">"i want money form user"</span>
+                </span>}</span>,
+                "<span class="hljs-attribute">email_hash</span>" : <span class="hljs-value">{
+                    "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"string"</span>
+                  </span>}</span>,
+              }
+            </span>}</span>,
           "<span class="hljs-attribute">amount</span>" : <span class="hljs-value">{
               "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"integer"</span>
           </span>}
@@ -1414,7 +1432,11 @@
 {
 "<span class="hljs-attribute">debtor</span>": <span class="hljs-value">[
 {
-  "<span class="hljs-attribute">to_user</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+  "<span class="hljs-attribute">user</span>": <span class="hljs-value">{
+     "<span class="hljs-attribute">zp</span>": <span class="hljs-value"><span class="hljs-number">222</span></span>,
+     "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"user zarinpal2"</span></span>,
+     "<span class="hljs-attribute">email_hash</span>": <span class="hljs-value"><span class="hljs-string">"bd3d7c53b7a8ee03f164d1f4c"</span>
+   </span>}</span>,
   "<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-number">20000000</span></span>,
   "<span class="hljs-attribute">status</span>": <span class="hljs-value">'در انتظار پرداخت'
 </span>},
@@ -1430,10 +1452,21 @@
      "<span class="hljs-attribute">debtor</span>" : <span class="hljs-value">{
        "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
        "<span class="hljs-attribute">properties</span>" : <span class="hljs-value">{
-         "<span class="hljs-attribute">to_user</span>" : <span class="hljs-value">{
-             "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"integer"</span></span>,
-             "<span class="hljs-attribute">description</span>" : <span class="hljs-value"><span class="hljs-string">"this user request money"</span>
-         </span>}</span>,
+         "<span class="hljs-attribute">user</span>" : <span class="hljs-value">{
+           "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+             "<span class="hljs-attribute">properties</span>" : <span class="hljs-value">{
+               "<span class="hljs-attribute">zp</span>" : <span class="hljs-value">{
+                   "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"integer"</span>
+               </span>}</span>,
+               "<span class="hljs-attribute">name</span>" : <span class="hljs-value">{
+                   "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+                   "<span class="hljs-attribute">description</span>" : <span class="hljs-value"><span class="hljs-string">"i want money form user"</span>
+               </span>}</span>,
+               "<span class="hljs-attribute">email_hash</span>" : <span class="hljs-value">{
+                   "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"string"</span>
+                 </span>}</span>,
+             }
+           </span>}</span>,
          "<span class="hljs-attribute">amount</span>" : <span class="hljs-value">{
              "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"integer"</span>
          </span>}</span>,
@@ -1460,7 +1493,11 @@
 {
 "<span class="hljs-attribute">debtor</span>": <span class="hljs-value">[
  {
-   "<span class="hljs-attribute">zp</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+ "<span class="hljs-attribute">user</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">zp</span>": <span class="hljs-value"><span class="hljs-number">222</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"user zarinpal2"</span></span>,
+    "<span class="hljs-attribute">email_hash</span>": <span class="hljs-value"><span class="hljs-string">"bd3d7c53b7a8ee03f164d1f4c"</span>
+  </span>}</span>,
    "<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-number">20000000</span></span>,
    "<span class="hljs-attribute">status</span>": <span class="hljs-value">'در انتظار پرداخت'
  </span>}
@@ -1477,9 +1514,20 @@
       "<span class="hljs-attribute">debtor</span>" : <span class="hljs-value">{
         "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
         "<span class="hljs-attribute">properties</span>" : <span class="hljs-value">{
-          "<span class="hljs-attribute">zp</span>" : <span class="hljs-value">{
-              "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"integer"</span></span>,
-              "<span class="hljs-attribute">description</span>" : <span class="hljs-value"><span class="hljs-string">"this user request money"</span>
+        "<span class="hljs-attribute">user</span>" : <span class="hljs-value">{
+          "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+            "<span class="hljs-attribute">properties</span>" : <span class="hljs-value">{
+              "<span class="hljs-attribute">zp</span>" : <span class="hljs-value">{
+                  "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"integer"</span>
+              </span>}</span>,
+              "<span class="hljs-attribute">name</span>" : <span class="hljs-value">{
+                  "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+                  "<span class="hljs-attribute">description</span>" : <span class="hljs-value"><span class="hljs-string">"i want money form user"</span>
+              </span>}</span>,
+              "<span class="hljs-attribute">email_hash</span>" : <span class="hljs-value">{
+                  "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"string"</span>
+                </span>}</span>,
+            }
           </span>}</span>,
           "<span class="hljs-attribute">amount</span>" : <span class="hljs-value">{
               "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"integer"</span>
@@ -1955,7 +2003,7 @@ Reply <span class="hljs-keyword">new</span> Ticket</code></pre><div style="heigh
 "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
 "<span class="hljs-attribute">properties</span>" : <span class="hljs-value">{
   "<span class="hljs-attribute">purse</span>" : <span class="hljs-value">{
-      "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"integer"</span></span>,
+      "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
       "<span class="hljs-attribute">description</span>" : <span class="hljs-value"><span class="hljs-string">"this is chose purse for sender."</span>
   </span>}</span>,
   "<span class="hljs-attribute">zpId</span>" : <span class="hljs-value">{
