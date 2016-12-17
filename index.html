@@ -1358,31 +1358,21 @@
 </span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div></div><div class="middle"><div id="requestmoney-request-money-post" class="action post"><h4 class="action-heading"><div class="name">RequestMoney</div><a href="#requestmoney-request-money-post" class="method post">POST</a><code class="uri">/requestMoney.json</code></h4></div></div><hr class="split"><div class="middle"><div id="requestmoney-demand" class="resource"><h3 class="resource-heading">demand <a href="#requestmoney-demand" class="permalink">&para;</a></h3></div></div><div class="right"><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.zarinpal.com/rest/v3</span>/requestMoney/listDemand.json</span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">example 1</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">Bearer [access_token]</span></code></pre><div style="height: 1px;"></div></div></div><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
 "<span class="hljs-attribute">data</span>": <span class="hljs-value">[
 {
-"<span class="hljs-attribute">entity_id</span>": <span class="hljs-value"><span class="hljs-string">"584e76e71731d100092df863"</span></span>,
-"<span class="hljs-attribute">debtor</span>": <span class="hljs-value">[
- {
-   "<span class="hljs-attribute">user</span>": <span class="hljs-value">{
-      "<span class="hljs-attribute">zp</span>": <span class="hljs-value"><span class="hljs-number">1111</span></span>,
-      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"user zarinpal1"</span></span>,
-      "<span class="hljs-attribute">email_hash</span>": <span class="hljs-value"><span class="hljs-string">"bd3d7c5389b7a8ee03f164d1f4c"</span>
-    </span>}</span>,
-   "<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-number">20000000</span></span>,
-   "<span class="hljs-attribute">status</span>": <span class="hljs-value">'در انتظار پرداخت'
- </span>},
- {
-   "<span class="hljs-attribute">user</span>": <span class="hljs-value">{
-      "<span class="hljs-attribute">zp</span>": <span class="hljs-value"><span class="hljs-number">222</span></span>,
-      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"user zarinpal2"</span></span>,
-      "<span class="hljs-attribute">email_hash</span>": <span class="hljs-value"><span class="hljs-string">"bd3d7c53b7a8ee03f164d1f4c"</span>
-    </span>}</span>,           "<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-number">20000000</span></span>,
-   "<span class="hljs-attribute">status</span>": <span class="hljs-value">'در انتظار پرداخت'
- </span>}
+"<span class="hljs-attribute">entity_id</span>": <span class="hljs-value"><span class="hljs-string">"584fce781731d100072c5473"</span></span>,
+"<span class="hljs-attribute">user</span>": <span class="hljs-value">[
+  {
+    "<span class="hljs-attribute">zp</span>": <span class="hljs-value"><span class="hljs-number">1234</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"user zarinpal"</span></span>,
+    "<span class="hljs-attribute">avatar</span>": <span class="hljs-value"><span class="hljs-string">"//gravatar.com/avatar/bd3bb35bd7c5389b7a?s=128&amp;r=g&amp;d=mm"</span></span>,
+    "<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-number">100</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"pending"</span>
+  </span>},
 ]</span>,
 "<span class="hljs-attribute">purse_number</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
-"<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"baiad behem pol bedin :)"</span>
-</span>},
-}
-</span></code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+"<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"i am need to 100 T"</span>
+</span>}
+]</span>,
+}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
 "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
 "<span class="hljs-attribute">items</span>" : <span class="hljs-value">{
   "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
@@ -1391,162 +1381,108 @@
           "<span class="hljs-attribute">entity_id</span>" : <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
           "<span class="hljs-attribute">description</span>" : <span class="hljs-value"><span class="hljs-string">"entity id for this request money"</span>
       </span>}</span>,
-      "<span class="hljs-attribute">debtor</span>" : <span class="hljs-value">{
+      "<span class="hljs-attribute">user</span>" : <span class="hljs-value">{
         "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
         "<span class="hljs-attribute">properties</span>" : <span class="hljs-value">{
-          "<span class="hljs-attribute">user</span>" : <span class="hljs-value">{
-            "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
-              "<span class="hljs-attribute">properties</span>" : <span class="hljs-value">{
-                "<span class="hljs-attribute">zp</span>" : <span class="hljs-value">{
-                    "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"integer"</span>
-                </span>}</span>,
-                "<span class="hljs-attribute">name</span>" : <span class="hljs-value">{
-                    "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-                    "<span class="hljs-attribute">description</span>" : <span class="hljs-value"><span class="hljs-string">"i want money form user"</span>
-                </span>}</span>,
-                "<span class="hljs-attribute">email_hash</span>" : <span class="hljs-value">{
-                    "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"string"</span>
-                  </span>}</span>,
-              }
+          "<span class="hljs-attribute">zp</span>" : <span class="hljs-value">{
+              "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"integer"</span>
+          </span>}</span>,
+          "<span class="hljs-attribute">name</span>" : <span class="hljs-value">{
+              "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+              "<span class="hljs-attribute">description</span>" : <span class="hljs-value"><span class="hljs-string">"i want money form user"</span>
+          </span>}</span>,
+          "<span class="hljs-attribute">avatar</span>" : <span class="hljs-value">{
+              "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"string"</span>
             </span>}</span>,
           "<span class="hljs-attribute">amount</span>" : <span class="hljs-value">{
-              "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"integer"</span>
-          </span>}
-      </span>}
-    </span>}</span>,
-    "<span class="hljs-attribute">properties</span>" : <span class="hljs-value">{
-      "<span class="hljs-attribute">purse_number</span>" : <span class="hljs-value">{
-            "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"integer"</span></span>,
-            "<span class="hljs-attribute">description</span>" : <span class="hljs-value"><span class="hljs-string">"my purse number"</span></span>,
+              "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"string"</span>
+            </span>}</span>,
+          "<span class="hljs-attribute">status</span>" : <span class="hljs-value">{
+              "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"string"</span>
+            </span>}</span>,
         }
     </span>}</span>,
-    "<span class="hljs-attribute">properties</span>" : <span class="hljs-value">{
-      "<span class="hljs-attribute">description</span>" : <span class="hljs-value">{
-            "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-        }
-    </span>}
+    "<span class="hljs-attribute">purse_number</span>" : <span class="hljs-value">{
+          "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"integer"</span></span>,
+          "<span class="hljs-attribute">description</span>" : <span class="hljs-value"><span class="hljs-string">"my purse number"</span></span>,
+      }</span>,
+    "<span class="hljs-attribute">description</span>" : <span class="hljs-value">{
+          "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      }
   </span>}
 </span>}
 </span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div></div><div class="middle"><div id="requestmoney-demand-get" class="action get"><h4 class="action-heading"><div class="name">List Demand</div><a href="#requestmoney-demand-get" class="method get">GET</a><code class="uri">/requestMoney/listDemand.json</code></h4></div></div><hr class="split"><div class="middle"><div id="requestmoney-list-debt" class="resource"><h3 class="resource-heading">List Debt <a href="#requestmoney-list-debt" class="permalink">&para;</a></h3></div></div><div class="right"><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.zarinpal.com/rest/v3</span>/requestMoney/listDebt.json</span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">example 1</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">Bearer [access_token]</span></code></pre><div style="height: 1px;"></div></div></div><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
-"<span class="hljs-attribute">data</span>": <span class="hljs-value">[
-{
-"<span class="hljs-attribute">debtor</span>": <span class="hljs-value">[
-{
-  "<span class="hljs-attribute">user</span>": <span class="hljs-value">{
-     "<span class="hljs-attribute">zp</span>": <span class="hljs-value"><span class="hljs-number">222</span></span>,
-     "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"user zarinpal2"</span></span>,
-     "<span class="hljs-attribute">email_hash</span>": <span class="hljs-value"><span class="hljs-string">"bd3d7c53b7a8ee03f164d1f4c"</span>
-   </span>}</span>,
-  "<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-number">20000000</span></span>,
-  "<span class="hljs-attribute">status</span>": <span class="hljs-value">'در انتظار پرداخت'
-</span>},
-]</span>,
-"<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"bedehi..."</span>
-</span>},
-}
-</span></code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
-"<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
-"<span class="hljs-attribute">items</span>" : <span class="hljs-value">{
- "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
- "<span class="hljs-attribute">properties</span>" : <span class="hljs-value">{
-     "<span class="hljs-attribute">debtor</span>" : <span class="hljs-value">{
-       "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
-       "<span class="hljs-attribute">properties</span>" : <span class="hljs-value">{
-         "<span class="hljs-attribute">user</span>" : <span class="hljs-value">{
-           "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
-             "<span class="hljs-attribute">properties</span>" : <span class="hljs-value">{
-               "<span class="hljs-attribute">zp</span>" : <span class="hljs-value">{
-                   "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"integer"</span>
-               </span>}</span>,
-               "<span class="hljs-attribute">name</span>" : <span class="hljs-value">{
-                   "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-                   "<span class="hljs-attribute">description</span>" : <span class="hljs-value"><span class="hljs-string">"i want money form user"</span>
-               </span>}</span>,
-               "<span class="hljs-attribute">email_hash</span>" : <span class="hljs-value">{
-                   "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"string"</span>
-                 </span>}</span>,
-             }
-           </span>}</span>,
-         "<span class="hljs-attribute">amount</span>" : <span class="hljs-value">{
-             "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"integer"</span>
-         </span>}</span>,
-         "<span class="hljs-attribute">status</span>" : <span class="hljs-value">{
-             "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"string"</span>
-         </span>}</span>,
-     }
-   </span>}</span>,
-   "<span class="hljs-attribute">properties</span>" : <span class="hljs-value">{
-     "<span class="hljs-attribute">purse_number</span>" : <span class="hljs-value">{
-           "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"integer"</span></span>,
-           "<span class="hljs-attribute">description</span>" : <span class="hljs-value"><span class="hljs-string">"my purse number"</span></span>,
-       }
-   </span>}</span>,
-   "<span class="hljs-attribute">properties</span>" : <span class="hljs-value">{
-     "<span class="hljs-attribute">description</span>" : <span class="hljs-value">{
-           "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-       }
-   </span>}
- </span>}
-</span>}
-</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div></div><div class="middle"><div id="requestmoney-list-debt-get" class="action get"><h4 class="action-heading"><div class="name">List Debt</div><a href="#requestmoney-list-debt-get" class="method get">GET</a><code class="uri">/requestMoney/listDebt.json</code></h4></div></div><hr class="split"><div class="middle"><div id="requestmoney-request-money-between-two-user" class="resource"><h3 class="resource-heading">Request Money between two user <a href="#requestmoney-request-money-between-two-user" class="permalink">&para;</a></h3></div></div><div class="right"><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.zarinpal.com/rest/v3</span>/requestMoney.json?zp=[public_id_user]</span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">example 1</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">Bearer [access_token]</span></code></pre><div style="height: 1px;"></div></div></div><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
-"<span class="hljs-attribute">data</span>": <span class="hljs-value">[
-{
-"<span class="hljs-attribute">debtor</span>": <span class="hljs-value">[
- {
- "<span class="hljs-attribute">user</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">zp</span>": <span class="hljs-value"><span class="hljs-number">222</span></span>,
-    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"user zarinpal2"</span></span>,
-    "<span class="hljs-attribute">email_hash</span>": <span class="hljs-value"><span class="hljs-string">"bd3d7c53b7a8ee03f164d1f4c"</span>
-  </span>}</span>,
-   "<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-number">20000000</span></span>,
-   "<span class="hljs-attribute">status</span>": <span class="hljs-value">'در انتظار پرداخت'
- </span>}
-]</span>,
-"<span class="hljs-attribute">purse_number</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
-"<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"dadash in vase kharide cake."</span>
-</span>},
-}
-</span></code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
-"<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
-"<span class="hljs-attribute">items</span>" : <span class="hljs-value">{
-  "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
-  "<span class="hljs-attribute">properties</span>" : <span class="hljs-value">{
-      "<span class="hljs-attribute">debtor</span>" : <span class="hljs-value">{
-        "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
-        "<span class="hljs-attribute">properties</span>" : <span class="hljs-value">{
-        "<span class="hljs-attribute">user</span>" : <span class="hljs-value">{
-          "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
-            "<span class="hljs-attribute">properties</span>" : <span class="hljs-value">{
-              "<span class="hljs-attribute">zp</span>" : <span class="hljs-value">{
-                  "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"integer"</span>
-              </span>}</span>,
-              "<span class="hljs-attribute">name</span>" : <span class="hljs-value">{
-                  "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-                  "<span class="hljs-attribute">description</span>" : <span class="hljs-value"><span class="hljs-string">"i want money form user"</span>
-              </span>}</span>,
-              "<span class="hljs-attribute">email_hash</span>" : <span class="hljs-value">{
-                  "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"string"</span>
-                </span>}</span>,
-            }
-          </span>}</span>,
-          "<span class="hljs-attribute">amount</span>" : <span class="hljs-value">{
-              "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"integer"</span>
-          </span>}
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">zp</span>": <span class="hljs-value"><span class="hljs-number">1234</span></span>,
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"user test"</span></span>,
+      "<span class="hljs-attribute">avatar</span>": <span class="hljs-value"><span class="hljs-string">"//gravatar.com/avatar/d304b8d789efcfdba035a2d39f458?s=128&amp;r=g&amp;d=mm"</span></span>,
+      "<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-number">100</span></span>,
+      "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"pending"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"i am need to 200 T"</span>
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
+  "<span class="hljs-attribute">items</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+    "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">zp</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"integer"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">avatar</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">amount</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"integer"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
       </span>}
-    </span>}</span>,
-    "<span class="hljs-attribute">properties</span>" : <span class="hljs-value">{
-      "<span class="hljs-attribute">purse_number</span>" : <span class="hljs-value">{
-            "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"integer"</span></span>,
-            "<span class="hljs-attribute">description</span>" : <span class="hljs-value"><span class="hljs-string">"my purse number"</span></span>,
-        }
-    </span>}</span>,
-    "<span class="hljs-attribute">properties</span>" : <span class="hljs-value">{
-      "<span class="hljs-attribute">description</span>" : <span class="hljs-value">{
-            "<span class="hljs-attribute">type</span>" : <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-        }
     </span>}
   </span>}
-</span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div></div><div class="middle"><div id="requestmoney-list-debt-get" class="action get"><h4 class="action-heading"><div class="name">List Debt</div><a href="#requestmoney-list-debt-get" class="method get">GET</a><code class="uri">/requestMoney/listDebt.json</code></h4></div></div><hr class="split"><div class="middle"><div id="requestmoney-request-money-between-two-user" class="resource"><h3 class="resource-heading">Request Money between two user <a href="#requestmoney-request-money-between-two-user" class="permalink">&para;</a></h3></div></div><div class="right"><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.zarinpal.com/rest/v3</span>/requestMoney.json?zp=[public_id_user]</span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">example 1</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">Bearer [access_token]</span></code></pre><div style="height: 1px;"></div></div></div><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">zp</span>": <span class="hljs-value"><span class="hljs-number">1234</span></span>,
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"user test"</span></span>,
+      "<span class="hljs-attribute">avatar</span>": <span class="hljs-value"><span class="hljs-string">"//gravatar.com/avatar/d304b8d789efcfdba035a2d39f458?s=128&amp;r=g&amp;d=mm"</span></span>,
+      "<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-number">100</span></span>,
+      "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"pending"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"i am need to 200 T"</span>
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span></span>,
+  "<span class="hljs-attribute">items</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+    "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">zp</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"integer"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">avatar</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">amount</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"integer"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+      </span>}</span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+      </span>}
+    </span>}
+  </span>}
 </span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div></div><div class="middle"><div id="requestmoney-request-money-between-two-user-get" class="action get"><h4 class="action-heading"><div class="name">Request Money 2 user</div><a href="#requestmoney-request-money-between-two-user-get" class="method get">GET</a><code class="uri">/requestMoney.json?zp=[public_id_user]</code></h4></div></div><hr class="split"><div class="middle"><section id="tickets" class="resource-group"><h2 class="group-heading">Tickets <a href="#tickets" class="permalink">&para;</a></h2></section></div><div class="middle"><div id="tickets-summery-tickets" class="resource"><h3 class="resource-heading">summery tickets <a href="#tickets-summery-tickets" class="permalink">&para;</a></h3><p>List summary user’s tickets</p>
 </div></div><div class="right"><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname">https://api.zarinpal.com/rest/v3</span>/ticket/summary.json</span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">example 1</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Authorization</span>: <span class="hljs-string">Bearer [access_token]</span></code></pre><div style="height: 1px;"></div></div></div><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
@@ -2909,7 +2845,7 @@ Reply <span class="hljs-keyword">new</span> Ticket</code></pre><div style="heigh
     "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
     "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Your request has been successfully submitted."</span>
   </span>}
-</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div></div><div class="middle"><div id="zarincard-requestissue-post" class="action post"><h4 class="action-heading"><div class="name">Zarincard requestIssue</div><a href="#zarincard-requestissue-post" class="method post">POST</a><code class="uri">/zarincard/requestIssue.json</code></h4></div></div><hr class="split"><div class="middle"><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 16 Dec 2016</p></div></div></div></div><script>/* eslint-env browser */
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div></div><div class="middle"><div id="zarincard-requestissue-post" class="action post"><h4 class="action-heading"><div class="name">Zarincard requestIssue</div><a href="#zarincard-requestissue-post" class="method post">POST</a><code class="uri">/zarincard/requestIssue.json</code></h4></div></div><hr class="split"><div class="middle"><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 17 Dec 2016</p></div></div></div></div><script>/* eslint-env browser */
 /* eslint quotes: [2, "single"] */
 'use strict';
 
