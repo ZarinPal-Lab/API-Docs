@@ -93,30 +93,21 @@
     + Body
     {
     "data": [
-    {
-       "entity_id": "584e76e71731d100092df863",
-       "debtor": [
-         {
-           "user": {
-              "zp": 1111,
-              "name": "user zarinpal1",
-              "email_hash": "bd3d7c5389b7a8ee03f164d1f4c"
-            },
-           "amount": 20000000,
-           "status": 'در انتظار پرداخت'
-         },
-         {
-           "user": {
-              "zp": 222,
-              "name": "user zarinpal2",
-              "email_hash": "bd3d7c53b7a8ee03f164d1f4c"
-            },           "amount": 20000000,
-           "status": 'در انتظار پرداخت'
-         }
-       ],
-       "purse_number": 1,
-       "description": "baiad behem pol bedin :)"
-      },
+      {
+        "entity_id": "584fce781731d100072c5473",
+        "user": [
+          {
+            "zp": 1234,
+            "name": "user zarinpal",
+            "avatar": "//gravatar.com/avatar/bd3bb35bd7c5389b7a?s=128&r=g&d=mm",
+            "amount": 100,
+            "status": "pending"
+          },
+        ],
+        "purse_number": 1,
+        "description": "i am need to 100 T"
+      }
+    ],
     }
 
     + Schema
@@ -129,40 +120,34 @@
                   "entity_id" : "string",
                   "description" : "entity id for this request money"
               },
-              "debtor" : {
+              "user" : {
                 "type" : "object",
                 "properties" : {
-                  "user" : {
-                    "type" : "object",
-                      "properties" : {
-                        "zp" : {
-                            "type" : "integer"
-                        },
-                        "name" : {
-                            "type" : "string",
-                            "description" : "i want money form user"
-                        },
-                        "email_hash" : {
-                            "type" : "string"
-                          },
-                      }
+                  "zp" : {
+                      "type" : "integer"
+                  },
+                  "name" : {
+                      "type" : "string",
+                      "description" : "i want money form user"
+                  },
+                  "avatar" : {
+                      "type" : "string"
                     },
                   "amount" : {
-                      "type" : "integer"
-                  }
+                      "type" : "string"
+                    },
+                  "status" : {
+                      "type" : "string"
+                    },
+                }
+            },
+            "purse_number" : {
+                  "type" : "integer",
+                  "description" : "my purse number",
+              },
+            "description" : {
+                  "type" : "string",
               }
-            },
-            "properties" : {
-              "purse_number" : {
-                    "type" : "integer",
-                    "description" : "my purse number",
-                }
-            },
-            "properties" : {
-              "description" : {
-                    "type" : "string",
-                }
-            }
           }
        }
      }
@@ -180,66 +165,41 @@
 
    + Body
    {
-   "data": [
-   {
-      "debtor": [
+     "data": [
         {
-          "user": {
-             "zp": 222,
-             "name": "user zarinpal2",
-             "email_hash": "bd3d7c53b7a8ee03f164d1f4c"
-           },
-          "amount": 20000000,
-          "status": 'در انتظار پرداخت'
-        },
-      ],
-      "description": "bedehi..."
-     },
+          "zp": 1234,
+          "name": "user test",
+          "avatar": "//gravatar.com/avatar/d304b8d789efcfdba035a2d39f458?s=128&r=g&d=mm",
+          "amount": 100,
+          "status": "pending",
+          "description": "i am need to 200 T"
+        }
+     ]
    }
-
    + Schema
    {
      "type" : "array",
      "items" : {
          "type" : "object",
          "properties" : {
-             "debtor" : {
-               "type" : "object",
-               "properties" : {
-                 "user" : {
-                   "type" : "object",
-                     "properties" : {
-                       "zp" : {
-                           "type" : "integer"
-                       },
-                       "name" : {
-                           "type" : "string",
-                           "description" : "i want money form user"
-                       },
-                       "email_hash" : {
-                           "type" : "string"
-                         },
-                     }
-                   },
-                 "amount" : {
-                     "type" : "integer"
-                 },
-                 "status" : {
-                     "type" : "string"
-                 },
-             }
-           },
-           "properties" : {
-             "purse_number" : {
-                   "type" : "integer",
-                   "description" : "my purse number",
-               }
-           },
-           "properties" : {
+              "zp" : {
+                "type" : "integer"
+              },
+              "name" : {
+                "type" : "string"
+              },
+              "avatar" : {
+                "type" : "string"
+              },
+              "amount" : {
+                "type" : "integer"
+              },
+              "status" : {
+                "type" : "string"
+              },
              "description" : {
-                   "type" : "string",
-               }
-           }
+                "type" : "string"
+             }
          }
       }
     }
@@ -258,21 +218,15 @@
     + Body
     {
     "data": [
-    {
-       "debtor": [
          {
-         "user": {
-            "zp": 222,
-            "name": "user zarinpal2",
-            "email_hash": "bd3d7c53b7a8ee03f164d1f4c"
-          },
-           "amount": 20000000,
-           "status": 'در انتظار پرداخت'
+           "zp": 1234,
+           "name": "user test",
+           "avatar": "//gravatar.com/avatar/d304b8d789efcfdba035a2d39f458?s=128&r=g&d=mm",
+           "amount": 100,
+           "status": "pending",
+           "description": "i am need to 200 T"
          }
-       ],
-       "purse_number": 1,
-       "description": "dadash in vase kharide cake."
-      },
+       ]
     }
 
     + Schema
@@ -281,40 +235,24 @@
       "items" : {
           "type" : "object",
           "properties" : {
-              "debtor" : {
-                "type" : "object",
-                "properties" : {
-                "user" : {
-                  "type" : "object",
-                    "properties" : {
-                      "zp" : {
-                          "type" : "integer"
-                      },
-                      "name" : {
-                          "type" : "string",
-                          "description" : "i want money form user"
-                      },
-                      "email_hash" : {
-                          "type" : "string"
-                        },
-                    }
-                  },
-                  "amount" : {
-                      "type" : "integer"
-                  }
-              }
-            },
-            "properties" : {
-              "purse_number" : {
-                    "type" : "integer",
-                    "description" : "my purse number",
-                }
-            },
-            "properties" : {
+               "zp" : {
+                 "type" : "integer"
+               },
+               "name" : {
+                 "type" : "string"
+               },
+               "avatar" : {
+                 "type" : "string"
+               },
+               "amount" : {
+                 "type" : "integer"
+               },
+               "status" : {
+                 "type" : "string"
+               },
               "description" : {
-                    "type" : "string",
-                }
-            }
+                 "type" : "string"
+              }
           }
        }
      }
