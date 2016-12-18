@@ -256,3 +256,49 @@
           }
        }
      }
+
+ ## reject request money [/requestMoney.json]
+
+ ### Reject request [PUT]
+
+ + Request (application/json)
+
+     + Headers
+     Authorization: Bearer [access_token]
+
+ + Response 200 (application/json)
+     + Body
+     {
+     		"entity_id" : "58557b71731d100073f23"
+     }
+
+    + Schema
+     {
+       "properties" : {
+         "entity_id" : {
+               "type" : "string",
+               "description" : "entity id for request money",
+           }
+       }
+     }
+
+ + Response 400 (application/json)
+
+   + Body
+     {
+         "meta": {
+           "code": 400,
+           "error_type": "RequestMoneyNotFound",
+           "error_message": "RequestMoney Not Found."
+         }
+     }
+
+ + Response 200 (application/json)
+
+     + Body
+     {
+       "meta": {
+         "code": 200,
+         "message": "Reject request money successfully."
+         }
+     }
