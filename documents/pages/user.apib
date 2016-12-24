@@ -1,0 +1,199 @@
+
+# Group Users
+
+## set username [/user/username.json]
+
+set user name for user
+
+### Set username for User [POST]
+
++ Request (application/json)
+
+    + Headers
+    Authorization: Bearer [access_token]
+
+    + Body
+        {
+          "username" : "zarinpal",
+          "check" : true
+        }
+
+    + Schema
+      {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "check": {
+            "type": "boolean",
+            "description": "if check set to true check user name and if check set to false set user name for user."
+          }
+        }
+     }
+
++ Response 400 (application/json)
+    + Body
+      {
+          "meta": {
+            "code": 400,
+            "error_type": "UserNameFixLate",
+            "error_message": "Username Fix Late . You can not change this name."
+          }
+      }
+
++ Response 200 (application/json)
+
+    + Body
+    {
+      "meta": {
+        "code": 200,
+        "message": "Add username successfully."
+        }
+    }
+
+## change notification [/user/notificationPreferences.json]
+
+Change notification for user
+
+### Change Notification for User [PUT]
+
++ Request (application/json)
+
+    + Headers
+    Authorization: Bearer [access_token]
+
+    + Body
+        {
+          "income_transaction": {
+            "email": false,
+            "sms": true,
+            "telegram": true,
+            "pusher": true
+          },
+          "outgo_transaction": {
+            "email": false,
+            "sms": false,
+            "telegram": true,
+            "pusher": true
+          },
+          "new_ticket": {
+            "email": false,
+            "sms": false,
+            "telegram": false,
+            "pusher": true
+          },
+          "reply_ticket": {
+            "email": false,
+            "sms": false,
+            "telegram": true,
+            "pusher": false
+          },
+          "new_login": {
+            "email": true,
+            "sms": false,
+            "telegram": true,
+            "pusher": true
+          }
+        }
+
++ Response 200 (application/json)
+
+    + Body
+    {
+      "meta": {
+        "code": 200,
+        "message": "Update notification preferences"
+        }
+    }
+
+## post Address [/user/address.json]
+
+Add address for user
+
+### Add Address for user [POST]
+
++ Request (application/json)
+
+    + Headers
+    Authorization: Bearer [access_token]
+
+    + Body
+        {
+          "address" : "tehran",
+          "landline" : "12222222",
+          "postal_code" : "2222222",
+          "geo_location" : "",
+          "title" : "home"
+        }
+
++ Response 200 (application/json)
+
+    + Body
+    {
+      "meta": {
+        "code": 200,
+        "message": "Add Address successfully."
+        }
+    }
+
+## set Information [/user/information.json]
+
+set Information user
+
+### Set Information User [POST]
+
++ Request (application/json)
+
+    + Headers
+    Authorization: Bearer [access_token]
+
+    + Body
+        {
+          "gender" : "male",
+          "first_name" : "مسعود",
+          "last_name" : "لطفی",
+          "birthday" : "1990-2-2",
+          "ssn" : "0012557298"
+        }
+
+    + Schema
+      {
+        "properties": {
+            "gender": {
+              "type": "string"
+            },
+            "first_name": {
+              "type": "string"
+            },
+            "last_name": {
+              "type": "string"
+            },
+            "birthday": {
+              "type": "string"
+            },
+            "ssn": {
+              "type": "string"
+            },
+        }
+     }
+
++ Response 400 (application/json)
+    + Body
+      {
+          "meta": {
+            "code": 400,
+            "error_type": "YouCanNotEditInfo",
+            "error_message": "You Can Not Edit Information.because this information confirmed."
+          }
+      }
+
++ Response 200 (application/json)
+
+    + Body
+    {
+      "meta": {
+        "code": 200,
+        "message": "Add information successfully."
+        }
+    }
