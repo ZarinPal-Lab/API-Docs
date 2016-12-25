@@ -197,3 +197,69 @@ set Information user
         "message": "Add information successfully."
         }
     }
+
+## upload document [/user/upload.json]
+
+send upload document
+
+### Upload Document [POST]
+
++ Request (application/json)
+
+    + Headers
+    Authorization: Bearer [access_token]
+
+    + Body
+        {
+          "id_card_file" : "document/14826578f6af6be.jpg",
+          "national_card_file" : "document/14w26578f6af6be.jpg",
+          "introduction_file" : "document/1482w578f6af6be.jpg",
+        }
+
+    + Schema
+      {
+        "properties": {
+            "id_card_file": {
+              "type": "string"
+            },
+            "national_card_file": {
+              "type": "string"
+            },
+            "introduction_file": {
+              "type": "string"
+            },
+        }
+     }
+
+
++ Response 200 (application/json)
+
+    + Body
+    {
+      "meta": {
+        "code": 200,
+        "message": "All user file uploaded."
+        }
+    }
+
+## progress user [/user/progress.json]
+
+progress user
+
+### Progress User [GET]
+
++ Request (application/json)
+
+    + Headers
+    Authorization: Bearer [access_token]
+
++ Response 200 (application/json)
+
+  + Body
+    {
+      "data": [
+          {
+            "points": 80
+          }
+        ]
+    }
