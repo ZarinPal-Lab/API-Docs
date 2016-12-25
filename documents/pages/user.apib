@@ -263,3 +263,25 @@ progress user
           }
         ]
     }
+
+
+## change email [/user/setEmail.json]
+
+Change email
+
+### Change Email [GET]
+
++ Request (application/json)
+
+    + Headers
+    Authorization: Bearer [access_token]
+
++ Response 200 (application/json)
+
+    + Body
+    {
+      "meta": {
+        "code": 200,
+        "message": "User email verified successfully."
+        }
+    }
