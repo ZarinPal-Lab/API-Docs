@@ -79,7 +79,7 @@
         }
     }
 
-## demand [/requestMoney/listDemand.json]
+## demand [/requestMoney/demand.json]
 
 ### List Demand [GET]
 
@@ -105,7 +105,8 @@
           },
         ],
         "purse_number": 1,
-        "description": "i am need to 100 T"
+        "description": "i am need to 100 T",
+        "created_at": "2016-12-29 17:03:43"
       }
     ],
     }
@@ -147,12 +148,15 @@
               },
             "description" : {
                   "type" : "string",
+              },
+            "created_at" : {
+                  "type" : "string",
               }
           }
        }
      }
 
-## List Debt [/requestMoney/listDebt.json]
+## List Debt [/requestMoney/debt.json]
 
 ### List Debt [GET]
 
@@ -167,12 +171,14 @@
    {
      "data": [
         {
+          "entity_id": "586510b7907b6129085e892d",
           "zp": 1234,
           "name": "user test",
           "avatar": "//gravatar.com/avatar/d304b8d789efcfdba035a2d39f458?s=128&r=g&d=mm",
           "amount": 100,
           "status": "pending",
-          "description": "i am need to 200 T"
+          "description": "i am need 200 T",
+          "created_at": "2016-12-29 17:03:43"
         }
      ]
    }
@@ -182,6 +188,9 @@
      "items" : {
          "type" : "object",
          "properties" : {
+              "entity_id" : {
+                "type" : "string"
+              },
               "zp" : {
                 "type" : "integer"
               },
@@ -199,7 +208,10 @@
               },
              "description" : {
                 "type" : "string"
-             }
+             },
+             "created_at" : {
+                "type" : "string"
+             },
          }
       }
     }
@@ -219,12 +231,14 @@
     {
     "data": [
          {
+           "entity_id": "586510b7907b6129085e892d",
            "zp": 1234,
            "name": "user test",
            "avatar": "//gravatar.com/avatar/d304b8d789efcfdba035a2d39f458?s=128&r=g&d=mm",
            "amount": 100,
            "status": "pending",
-           "description": "i am need to 200 T"
+           "description": "i am need to 200 T",
+           "created_at": "2016-12-29 17:03:43"
          }
        ]
     }
@@ -235,6 +249,9 @@
       "items" : {
           "type" : "object",
           "properties" : {
+                "entity_id" : {
+                  "type" : "string"
+                },
                "zp" : {
                  "type" : "integer"
                },
@@ -252,7 +269,10 @@
                },
               "description" : {
                  "type" : "string"
-              }
+              },
+             "created_at" : {
+                "type" : "string"
+             }
           }
        }
      }
