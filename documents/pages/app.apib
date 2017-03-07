@@ -1,0 +1,76 @@
+
+# Group Apps
+
+## list fees [/fees.json]
+
+List fees
+
+### List Fees [GET]
+
++ Request (application/json)
+
+    + Headers
+    Authorization: Bearer [access_token]
+
++ Response 200 (application/json)
+
+  + Body
+    {
+      "data": [
+      {
+         "id": "default",
+         "title": "کاربران قدیمی زرین پال",
+         "description": "کاربران قدیمی زرین پال",
+         "withdraw_method": [
+           {
+             "slug": "default",
+             "percent": 1,
+             "rebate": 0,
+             "reconcile_in": 28800
+           },
+           {
+             "slug": "zarincard",
+             "percent": 0.5,
+             "rebate": 0,
+             "reconcile_in": 43200
+           }
+         ]
+        }
+      ]
+    }
+
+    + Schema
+      {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "withdraw_method": {
+              "type": "object",
+              "properties": {
+                "slug": {
+                  "type": "string"
+                },
+                "percent": {
+                  "type": "integer"
+                },
+                "rebate": {
+                  "type": "integer"
+                },
+                "reconcile_in": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        }
+      }
