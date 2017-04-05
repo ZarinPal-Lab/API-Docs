@@ -263,3 +263,28 @@ Change email
         "message": "User email verified successfully."
         }
     }
+
+## referrer users [/user/referredUsers.json]
+
+referrer users
+
+### Referrer User [GET]
+
++ Request (application/json)
+
+    + Headers
+    Authorization: Bearer [access_token]
+
++ Response 200 (application/json)
+
+    + Body
+    {
+    "data": [
+         {
+           "name": "masoud lotfi",
+           "public_id": 111242,
+           "email_hash": "8b7bed0d4053db1ace98d194948af",
+           "avatar": "//gravatar.com/avatar/8b7bed0d4db1ace98d194705948af?r=g&d=mm"
+         }
+      ],
+    }
