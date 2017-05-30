@@ -950,12 +950,10 @@
     "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Session Expired Successfully."</span>
   </span>}
 </span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div></div><div class="middle"><div id="oauth-logout-get" class="action get"><h4 class="action-heading"><div class="name">logout</div><a href="#oauth-logout-get" class="method get">GET</a><code class="uri">/oauth/logout.json</code></h4></div></div><hr class="split"><div class="middle"><div id="oauth-register" class="resource"><h3 class="resource-heading">register <a href="#oauth-register" class="permalink">&para;</a></h3><p>register new user</p>
-</div></div><div class="right"><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.zarinpal.com/rest/v3</span>/oauth/register.json</span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">example 1</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
-  "<span class="hljs-attribute">first_name</span>": <span class="hljs-value"><span class="hljs-string">"masoud"</span></span>,
-  "<span class="hljs-attribute">last_name</span>": <span class="hljs-value"><span class="hljs-string">"lotfi"</span></span>,
-  "<span class="hljs-attribute">email</span>": <span class="hljs-value"><span class="hljs-string">"test@gmail.com"</span></span>,
-  "<span class="hljs-attribute">mobile</span>": <span class="hljs-value"><span class="hljs-string">"09351309626"</span></span>,
-  "<span class="hljs-attribute">password</span>": <span class="hljs-value"><span class="hljs-string">"#######"</span>
+</div></div><div class="right"><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.zarinpal.com/rest/v3</span>/oauth/registerUser.json </span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">example 1</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">first_name</span>": <span class="hljs-value"><span class="hljs-string">"tehran"</span></span>,
+  "<span class="hljs-attribute">last_name</span>": <span class="hljs-value"><span class="hljs-string">"12222222"</span></span>,
+  "<span class="hljs-attribute">mobile</span>": <span class="hljs-value"><span class="hljs-string">"09351123334"</span>
 </span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
   "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
   "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
@@ -965,13 +963,7 @@
     "<span class="hljs-attribute">last_name</span>": <span class="hljs-value">{
       "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
     </span>}</span>,
-    "<span class="hljs-attribute">email</span>": <span class="hljs-value">{
-      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
-    </span>}</span>,
     "<span class="hljs-attribute">mobile</span>": <span class="hljs-value">{
-      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
-    </span>}</span>,
-    "<span class="hljs-attribute">password</span>": <span class="hljs-value">{
       "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
     </span>}
   </span>}
@@ -980,7 +972,7 @@
     "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
     "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"you are registered, now verify your email address."</span>
   </span>}
-</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div></div><div class="middle"><div id="oauth-register-post" class="action post"><h4 class="action-heading"><div class="name">Post Register</div><a href="#oauth-register-post" class="method post">POST</a><code class="uri">/oauth/register.json</code></h4></div></div><hr class="split"><div class="middle"><div id="oauth-resend-mobile-verification" class="resource"><h3 class="resource-heading">Resend Mobile verification <a href="#oauth-resend-mobile-verification" class="permalink">&para;</a></h3><p>Resend Mobile Verify Code</p>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div></div><div class="middle"><div id="oauth-register-post" class="action post"><h4 class="action-heading"><div class="name">Post Register</div><a href="#oauth-register-post" class="method post">POST</a><code class="uri">/oauth/registerUser.json </code></h4></div></div><hr class="split"><div class="middle"><div id="oauth-resend-mobile-verification" class="resource"><h3 class="resource-heading">Resend Mobile verification <a href="#oauth-resend-mobile-verification" class="permalink">&para;</a></h3><p>Resend Mobile Verify Code</p>
 </div></div><div class="right"><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname">https://api.zarinpal.com/rest/v3</span>/oauth/resendMobileVerifyCode.json</span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">example 1</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">username</span>": <span class="hljs-value"><span class="hljs-string">"test@gmail.com"</span>
 </span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
@@ -3045,7 +3037,7 @@ Reply <span class="hljs-keyword">new</span> Ticket</code></pre><div style="heigh
     "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
     "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"Your request has been successfully submitted."</span>
   </span>}
-</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div></div><div class="middle"><div id="zarincard-requestissue-post" class="action post"><h4 class="action-heading"><div class="name">Zarincard requestIssue</div><a href="#zarincard-requestissue-post" class="method post">POST</a><code class="uri">/zarincard/requestIssue.json</code></h4></div></div><hr class="split"><div class="middle"><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 09 Apr 2017</p></div></div></div></div><script>/* eslint-env browser */
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div></div></div><div class="middle"><div id="zarincard-requestissue-post" class="action post"><h4 class="action-heading"><div class="name">Zarincard requestIssue</div><a href="#zarincard-requestissue-post" class="method post">POST</a><code class="uri">/zarincard/requestIssue.json</code></h4></div></div><hr class="split"><div class="middle"><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 30 May 2017</p></div></div></div></div><script>/* eslint-env browser */
 /* eslint quotes: [2, "single"] */
 'use strict';
 
