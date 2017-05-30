@@ -32,7 +32,7 @@ logout user in app
         }
     }
 
-## register [/oauth/register.json]
+## register [/oauth/registerUser.json ]
 
 register new user
 
@@ -42,11 +42,9 @@ register new user
 
     + Body
       {
-          "first_name":"masoud",
-          "last_name":"lotfi",
-          "email":"test@gmail.com",
-          "mobile":"09351309626",
-          "password":"#######"
+        "first_name" : "tehran",
+        "last_name" : "12222222",
+        "mobile" : "09351123334"
       }
 
     + Schema
@@ -59,13 +57,7 @@ register new user
               "last_name" : {
                 "type" : "string"
               },
-              "email": {
-                "type" : "string"
-              },
               "mobile": {
-                "type" : "string"
-              },
-              "password": {
                 "type" : "string"
               }
           }
