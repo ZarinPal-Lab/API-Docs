@@ -332,16 +332,19 @@ Perform requesting zarincard
 
     + Body
       {
-          "purse_number" : 1
+          "purse_number" : 1,
+          "coupon" : 'test',
       }
 
     + Schema {
-          "type" : "object",
-          "properties" : {
-              "purse_number" : {
-                "type" : "integer"
-              }
-          }
+        "type" : "object",
+        "properties": {
+          "purse_number": {
+            "type": "integer",
+          },
+          "coupon": {
+            "type": "string"
+          },
       }
 
 + Response 400 (application/json)
