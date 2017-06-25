@@ -68,6 +68,43 @@ Get the owner name, bank name, bank Sheba Id of the card
         }
       }
 
+## zarincard getCost [/zarincard/holderName/[destination_pan].json]
+
+Get cost zarincard and coupon
+
+### Zarincard GetCost [GET]
+
++ Request (application/json)
+
+    + Headers
+    Authorization: Bearer [access_token]
+
++ Response 200 (application/json)
+
+  + Body
+    {
+        "data": {
+          "cost": 49500,
+          "coupon": null
+        },
+        "meta": {
+          "code": 200
+        }
+    }
+
+    + Schema
+      {
+        "type" : "object",
+        "properties" : {
+          "cost" : {
+            "type" : "integer",
+          },
+          "coupon" : {
+            "type" : "string",
+          }
+        }
+      }
+
 ## zarincard statement [/zarincard/statement.json]
 
 Get statement for Zarincard
